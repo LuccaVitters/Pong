@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1000, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
     
@@ -47,13 +47,13 @@ function update() {
     game.physics.arcade.collide(ball, paddleLeft, collisionHandler, null, this);
     game.physics.arcade.collide(ball, paddleRight, collisionHandler2, null, this);
     
-    if (cursors.left.isDown)
+    if (cursors.up.isDown)
         {
-            paddleLeft.body.velocity.x = -200;
+            paddleLeft.body.velocity.y = -200;
         }
-        else if (cursors.right.isDown)
+        else if (cursors.down.isDown)
         {
-            paddleLeft.body.velocity.x = 200;
+            paddleLeft.body.velocity.y = 200;
         }
     
 }
