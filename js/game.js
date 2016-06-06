@@ -9,10 +9,27 @@ function preload() {
 
 function create() {
     
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    
+    
+    
     game.add.sprite(380, 280, 'ball');
+    
+    
     game.add.sprite(20, 300, 'paddleLeft');
+    
+    
     game.add.sprite(780, 300, 'paddleRight');
+    
+    
+    game.physics.arcade.enable(ball);
+    game.physics.arcade.enable(paddleLeft);
+    game.physics.arcade.enable(paddleRight);
 }
 
 function update() {
+    
+    game.physics.arcade.collide(this.ball, this.paddleLeft);
+    game.physics.arcade.collide(this.ball, this.paddleRight);
+    
 }
