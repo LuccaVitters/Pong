@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1000, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
     
@@ -7,29 +7,61 @@ function preload() {
     game.load.image('paddleRight', 'assets/paddle.png');
 }
 
+
+var ball;
+var paddleLeft;
+var paddleRight;
+var cursors;
+
 function create() {
     
     game.physics.startSystem(Phaser.Physics.ARCADE);
     
     
     
-    game.add.sprite(380, 280, 'ball');
+    ball = game.add.sprite(380, 280, 'ball');
     
     
-    game.add.sprite(20, 300, 'paddleLeft');
+    paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
     
     
-    game.add.sprite(780, 300, 'paddleRight');
+    paddleRight = game.add.sprite(750, 300, 'paddleRight');
     
     
     game.physics.arcade.enable(ball);
+    ball.body.collideWorldBounds = true;
+    ball.body.velocity.setTo(200,200);
+    ball.body.bounce.set(1);
+    
     game.physics.arcade.enable(paddleLeft);
+    paddleLeft.body.collideWorldBounds = true;
+    
     game.physics.arcade.enable(paddleRight);
+    paddleRight.body.collideWorldBounds = true;
+    
+    cursors = game.input.keyboard.createCursorKeys();
 }
 
 function update() {
     
-    game.physics.arcade.collide(this.ball, this.paddleLeft);
-    game.physics.arcade.collide(this.ball, this.paddleRight);
+    game.physics.arcade.collide(ball, paddleLeft, collisionHandler, null, this);
+    game.physics.arcade.collide(ball, paddleRight, collisionHandler2, null, this);
+    
+    if (cursors.up.isDown)
+        {
+            paddleLeft.body.velocity.y = -200;
+        }
+        else if (cursors.down.isDown)
+        {
+            paddleLeft.body.velocity.y = 200;
+        }
+    
+}
+
+function collisionHandler (ball, paddleLeft) {
+    
+}
+
+function collisionHandler2 (ball, paddleRight) {
     
 }
