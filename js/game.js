@@ -12,6 +12,8 @@ var ball;
 var paddleLeft;
 var paddleRight;
 var cursors;
+var Wkey;
+var Akey;
 
 function create() {
     
@@ -25,7 +27,7 @@ function create() {
     paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
     
     
-    paddleRight = game.add.sprite(750, 300, 'paddleRight');
+    paddleRight = game.add.sprite(980, 300, 'paddleRight');
     
     
     game.physics.arcade.enable(ball);
@@ -40,28 +42,44 @@ function create() {
     paddleRight.body.collideWorldBounds = true;
     
     cursors = game.input.keyboard.createCursorKeys();
+
+    Wkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
+    Skey = game.input.keyboard.addKey(Phaser.Keyboard.S);
+        
 }
 
 function update() {
     
-    game.physics.arcade.collide(ball, paddleLeft, collisionHandler, null, this);
-    game.physics.arcade.collide(ball, paddleRight, collisionHandler2, null, this);
+    game.physics.arcade.collide(ball, paddleLeft, collisionHandlerPaddleLeft, null, this);
+    game.physics.arcade.collide(ball, paddleRight, collisionHandlerPaddleRight, null, this);
     
-    if (cursors.up.isDown)
+    paddleLeft.body.velocity.setTo(0, 0);
+    
+    if (Wkey.isDown)
         {
             paddleLeft.body.velocity.y = -200;
         }
-        else if (cursors.down.isDown)
+        else if (Skey.isDown)
         {
             paddleLeft.body.velocity.y = 200;
         }
     
+    paddleRight.body.velocity.setTo(0, 0);
+    
+    if (cursors.up.isDown)
+        {
+            paddleRight.body.velocity.y = -200;
+        }
+        else if (cursors.down.isDown)
+        {
+            paddleRight.body.velocity.y = 200;
+        }
 }
 
-function collisionHandler (ball, paddleLeft) {
+function collisionHandlerPaddleLeft (ball, paddleLeft) {
     
 }
 
-function collisionHandler2 (ball, paddleRight) {
+function collisionHandlerPaddleRight (ball, paddleRight) {
     
 }
