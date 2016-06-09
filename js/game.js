@@ -28,13 +28,13 @@ function create() {
     paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
     game.physics.p2.enable(paddleLeft);
     paddleLeft.body.collideWorldBounds = true;
-    //paddleLeft.body.immovable = true;
+    paddleLeft.body.fixedRotation = true;
     
-    // paddle right
+    // paddleRight
     paddleRight = game.add.sprite(960, 300, 'paddleRight');
     game.physics.p2.enable(paddleRight);
     paddleRight.body.collideWorldBounds = true;
-    //paddleRight.body.immovable = true;
+    paddleRight.body.fixedRotation = true;
     
     cursors = game.input.keyboard.createCursorKeys();
 
