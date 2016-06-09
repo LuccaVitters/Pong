@@ -13,28 +13,38 @@ var paddleRight;
 var cursors;
 var Wkey;
 var Akey;
+var ballMaterial;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.P2JS);
+    game.physics.p2.restitution = 1;
+    game.physics.p2.applyDamping = false;
+    
+    ballMaterial = game.physics.p2.createMaterial();
+    game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
     // ball
     ball = game.add.sprite(380, 280, 'ball');
-    game.physics.p2.enable(ball);
+    game.physics.p2.enable(ball, true);
     ball.body.collideWorldBounds = true;
     ball.body.velocity.x = 200;
     ball.body.velocity.y = 200;
+    ball.body.setCircle(20);
+    
     
     // paddleLeft
     paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
-    game.physics.p2.enable(paddleLeft);
+    game.physics.p2.enable(paddleLeft, true);
     paddleLeft.body.collideWorldBounds = true;
     paddleLeft.body.fixedRotation = true;
+    paddleLeft.body.static = true;
     
     // paddleRight
-    paddleRight = game.add.sprite(960, 300, 'paddleRight');
-    game.physics.p2.enable(paddleRight);
+    paddleRight = game.add.sprite(970, 300, 'paddleRight');
+    game.physics.p2.enable(paddleRight, true);
     paddleRight.body.collideWorldBounds = true;
     paddleRight.body.fixedRotation = true;
+    paddleRight.body.static = true;
     
     cursors = game.input.keyboard.createCursorKeys();
 
