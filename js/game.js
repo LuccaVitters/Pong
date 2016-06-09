@@ -15,31 +15,26 @@ var Wkey;
 var Akey;
 
 function create() {
-    
     game.physics.startSystem(Phaser.Physics.P2JS);
     
-    
+    // ball
     ball = game.add.sprite(380, 280, 'ball');
-    
-    
-    paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
-    
-    
-    paddleRight = game.add.sprite(960, 300, 'paddleRight');
-    
-    
-    game.physics.arcade.enable(ball);
+    game.physics.p2.enable(ball);
     ball.body.collideWorldBounds = true;
-    ball.body.velocity.setTo(200,200);
-    ball.body.bounce.set(1);
+    ball.body.velocity.x = 200;
+    ball.body.velocity.y = 200;
     
-    game.physics.arcade.enable(paddleLeft);
+    // paddleLeft
+    paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
+    game.physics.p2.enable(paddleLeft);
     paddleLeft.body.collideWorldBounds = true;
-    paddleLeft.body.immovable = true;
+    //paddleLeft.body.immovable = true;
     
-    game.physics.arcade.enable(paddleRight);
+    // paddle right
+    paddleRight = game.add.sprite(960, 300, 'paddleRight');
+    game.physics.p2.enable(paddleRight);
     paddleRight.body.collideWorldBounds = true;
-    paddleRight.body.immovable = true;
+    //paddleRight.body.immovable = true;
     
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -53,9 +48,8 @@ function update() {
     game.physics.arcade.collide(ball, paddleLeft, collisionHandlerPaddleLeft, null, this);
     game.physics.arcade.collide(ball, paddleRight, collisionHandlerPaddleRight, null, this);
     
-    paddleLeft.body.velocity.setTo(0, 0);
-    paddleRight.body.velocity.setTo(0, 0);
-    
+    // left paddle movement
+    paddleLeft.body.setZeroVelocity();
     if (Wkey.isDown)
         {
             paddleLeft.body.velocity.y = -200;
@@ -65,8 +59,8 @@ function update() {
             paddleLeft.body.velocity.y = 200;
         }
     
-    paddleRight.body.velocity.setTo(0, 0);
-    
+    // right paddle movement
+    paddleRight.body.setZeroVelocity();
     if (cursors.up.isDown)
         {
             paddleRight.body.velocity.y = -200;
