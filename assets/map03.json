@@ -1,0 +1,36 @@
+{ 
+    
+    "Map03": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   3507, 919  ,  1995, 0  ,  2456, 44  ,  2904, 160  ,  3315, 356  ,  3514, 519  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   3335, 1923  ,  3025, 2085  ,  2568, 2225  ,  2073, 2288  ,  1594, 2276  ,  1132, 2192  ,  3514, 1401  ,  3515, 1770  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   463, 409  ,  868, 187  ,  1326, 56  ,  340, 958  ,  334, 510  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   1326, 56  ,  1846, 0  ,  1995, 0  ,  407, 1841  ,  338, 1785  ,  340, 958  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   3515, 1168  ,  3514, 1401  ,  1132, 2192  ,  407, 1841  ,  1995, 0  ,  3507, 919  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   407, 1841  ,  1132, 2192  ,  731, 2047  ]
+        }
+    ]
+}
