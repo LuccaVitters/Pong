@@ -54,41 +54,25 @@ function create() {
 }
 
 function update() {
-    
-    game.physics.arcade.collide(ball, paddleLeft, collisionHandlerPaddleLeft, null, this);
-    game.physics.arcade.collide(ball, paddleRight, collisionHandlerPaddleRight, null, this);
-    
     // left paddle movement
     paddleLeft.body.setZeroVelocity();
     if (Wkey.isDown)
-        {
-            paddleLeft.body.velocity.y = -200;
-        }
-        else if (Skey.isDown)
-        {
-            paddleLeft.body.velocity.y = 200;
-        }
+    {
+        paddleLeft.body.velocity.y = -200;
+    }
+    else if (Skey.isDown)
+    {
+        paddleLeft.body.velocity.y = 200;
+    }
     
     // right paddle movement
     paddleRight.body.setZeroVelocity();
     if (cursors.up.isDown)
-        {
-            paddleRight.body.velocity.y = -200;
-        }
-        else if (cursors.down.isDown)
-        {
-            paddleRight.body.velocity.y = 200;
-        }
-}
-
-function collisionHandlerPaddleLeft (ball, paddleLeft) {
-    
-    ball.body.velocity.y = -ball.body.velocity.y;
-    ball.body.velocity.x = -ball.body.velocity.x
-}
-
-function collisionHandlerPaddleRight (ball, paddleRight) {
-    
-    ball.body.velocity.y = -ball.body.velocity.y;
-    ball.body.velocity.x = -ball.body.velocity.x
+    {
+        paddleRight.body.velocity.y = -200;
+    }
+    else if (cursors.down.isDown)
+    {
+        paddleRight.body.velocity.y = 200;
+    }
 }
