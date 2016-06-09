@@ -28,16 +28,16 @@ function create() {
     paddleRight = game.add.sprite(960, 300, 'paddleRight');
     
     
-    game.physics.p2.enable(ball);
+    game.physics.arcade.enable(ball);
     ball.body.collideWorldBounds = true;
     ball.body.velocity.setTo(200,200);
     ball.body.bounce.set(1);
     
-    game.physics.p2.enable(paddleLeft);
+    game.physics.arcade.enable(paddleLeft);
     paddleLeft.body.collideWorldBounds = true;
     paddleLeft.body.immovable = true;
     
-    game.physics.p2.enable(paddleRight);
+    game.physics.arcade.enable(paddleRight);
     paddleRight.body.collideWorldBounds = true;
     paddleRight.body.immovable = true;
     
@@ -50,8 +50,8 @@ function create() {
 
 function update() {
     
-    game.physics.p2.collide(ball, paddleLeft, collisionHandlerPaddleLeft, null, this);
-    game.physics.p2.collide(ball, paddleRight, collisionHandlerPaddleRight, null, this);
+    game.physics.arcade.collide(ball, paddleLeft, collisionHandlerPaddleLeft, null, this);
+    game.physics.arcade.collide(ball, paddleRight, collisionHandlerPaddleRight, null, this);
     
     paddleLeft.body.velocity.setTo(0, 0);
     paddleRight.body.velocity.setTo(0, 0);
