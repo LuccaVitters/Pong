@@ -14,6 +14,7 @@ var cursors;
 var Wkey;
 var Akey;
 var ballMaterial;
+var debug = false;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.P2JS);
@@ -25,7 +26,7 @@ function create() {
     
     // ball
     ball = game.add.sprite(380, 280, 'ball');
-    game.physics.p2.enable(ball, true);
+    game.physics.p2.enable(ball, debug);
     ball.body.collideWorldBounds = true;
     ball.body.velocity.x = 200;
     ball.body.velocity.y = 200;
@@ -34,14 +35,14 @@ function create() {
     
     // paddle1
     paddle1 = game.add.sprite(20, 300, 'paddleLeft');
-    game.physics.p2.enable(paddle1, true);
+    game.physics.p2.enable(paddle1, debug);
     paddle1.body.collideWorldBounds = true;
     paddle1.body.fixedRotation = true;
     paddle1.body.static = true;
     
     // paddle2
     paddle2 = game.add.sprite(970, 300, 'paddleRight');
-    game.physics.p2.enable(paddle2, true);
+    game.physics.p2.enable(paddle2, debug);
     paddle2.body.collideWorldBounds = true;
     paddle2.body.fixedRotation = true;
     paddle2.body.static = true;
