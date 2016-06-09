@@ -8,8 +8,8 @@ function preload() {
 }
 
 var ball;
-var paddleLeft;
-var paddleRight;
+var paddle1;
+var paddle2;
 var cursors;
 var Wkey;
 var Akey;
@@ -32,19 +32,19 @@ function create() {
     ball.body.setCircle(20);
     
     
-    // paddleLeft
-    paddleLeft = game.add.sprite(20, 300, 'paddleLeft');
-    game.physics.p2.enable(paddleLeft, true);
-    paddleLeft.body.collideWorldBounds = true;
-    paddleLeft.body.fixedRotation = true;
-    paddleLeft.body.static = true;
+    // paddle1
+    paddle1 = game.add.sprite(20, 300, 'paddleLeft');
+    game.physics.p2.enable(paddle1, true);
+    paddle1.body.collideWorldBounds = true;
+    paddle1.body.fixedRotation = true;
+    paddle1.body.static = true;
     
-    // paddleRight
-    paddleRight = game.add.sprite(970, 300, 'paddleRight');
-    game.physics.p2.enable(paddleRight, true);
-    paddleRight.body.collideWorldBounds = true;
-    paddleRight.body.fixedRotation = true;
-    paddleRight.body.static = true;
+    // paddle2
+    paddle2 = game.add.sprite(970, 300, 'paddleRight');
+    game.physics.p2.enable(paddle2, true);
+    paddle2.body.collideWorldBounds = true;
+    paddle2.body.fixedRotation = true;
+    paddle2.body.static = true;
     
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -54,7 +54,7 @@ function create() {
 }
 
 function update() {
-    // left paddle movement
+    // paddle1
     paddleLeft.body.setZeroVelocity();
     if (Wkey.isDown)
     {
@@ -65,14 +65,14 @@ function update() {
         paddleLeft.body.velocity.y = 200;
     }
     
-    // right paddle movement
-    paddleRight.body.setZeroVelocity();
+    // paddle2
+    paddle2.body.setZeroVelocity();
     if (cursors.up.isDown)
     {
-        paddleRight.body.velocity.y = -200;
+        paddle2.body.velocity.y = -200;
     }
     else if (cursors.down.isDown)
     {
-        paddleRight.body.velocity.y = 200;
+        paddle2.body.velocity.y = 200;
     }
 }
