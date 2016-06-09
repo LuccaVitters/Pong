@@ -5,6 +5,8 @@ function preload() {
     game.load.image('ball', 'assets/ball.png');
     game.load.image('paddleLeft', 'assets/paddle.png');
     game.load.image('paddleRight', 'assets/paddle.png');
+    
+    game.load.image('texture', 'assets/texture.png');
 }
 
 var ball;
@@ -64,6 +66,7 @@ function createField() {
         { x: 900, y: 500 }, 
         { x: 100, y: 500 });
     var graphics = game.add.graphics(0,0);
+    game.add.sprite(100, 100, 'texture');
     graphics.beginFill(0xFF33ff);
     graphics.drawPolygon(poly.points);
     graphics.endFill();
