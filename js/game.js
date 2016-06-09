@@ -10,6 +10,9 @@ function preload() {
     game.load.image('paddleRight', 'assets/paddle.png');
     
     game.load.image('texture', 'assets/texture.png');
+    
+    game.load.image("LSpielfeld", "assets/LSpielfeld.png");
+    game.load.physics("LSpielfeld_physics", "assets/LSpielfeld.json");
 }
 
 var ball;
@@ -21,7 +24,7 @@ var Akey;
 var ballMaterial;
 var debug = false;
 var paddleSpeed = 200;
-
+var field;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.P2JS);
@@ -32,6 +35,12 @@ function create() {
     game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
     createField();
+    
+    field = game.add.sprite(600, 500, 'LSpielfeld');
+    game.physics.p2.enable(field, debug);
+    field.body.clearShapes();
+    field.body.loadPolygon("LSpielfeld_physics", "LSpielfeld");
+    field.body.static = true;
     
     // ball
     ball = game.add.sprite(380, 280, 'ball');
