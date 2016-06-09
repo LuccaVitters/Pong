@@ -78,47 +78,11 @@ function update() {
 }
 
 function collisionHandlerPaddleLeft (ball, paddleLeft) {
-    var diff = 0;
-
-    if (ball.x < paddleLeft.x)
-    {
-        //  Ball is on the left-hand side of the paddle
-        diff = paddleLeft.x - ball.x;
-        ball.body.velocity.x = (-3 * diff);
-    }
-    else if (ball.x > paddleLeft.x)
-    {
-        //  Ball is on the right-hand side of the paddle
-        diff = ball.x -paddleLeft.x;
-        ball.body.velocity.x = (3 * diff);
-    }
-    else
-    {
-        //  Ball is perfectly in the middle
-        //  Add a little random X to stop it bouncing straight up!
-        ball.body.velocity.x = 2 + Math.random() * 8;
-    }
+    
+    ball.body.velocity.y = -ball.body.velocity.y;
 }
 
 function collisionHandlerPaddleRight (ball, paddleRight) {
-    var diff2 = 0;
-
-    if (ball.x < paddleRight.x)
-    {
-        //  Ball is on the left-hand side of the paddle
-        diff2 = paddleRight.x - ball.x;
-        ball.body.velocity.x = (-3 * diff2);
-    }
-    else if (ball.x > paddleRight.x)
-    {
-        //  Ball is on the right-hand side of the paddle
-        diff2 = ball.x -paddleRight.x;
-        ball.body.velocity.x = (3 * diff2);
-    }
-    else
-    {
-        //  Ball is perfectly in the middle
-        //  Add a little random X to stop it bouncing straight up!
-        ball.body.velocity.x = 2 + Math.random() * 8;
-    }
+    
+    ball.body.velocity.y = -ball.body.velocity.y;
 }
