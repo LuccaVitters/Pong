@@ -1,4 +1,7 @@
-var game = new Phaser.Game(1000, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var canvasWidth = 1200;
+var canvasHeight = 800;
+
+var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
     
@@ -16,6 +19,7 @@ var Akey;
 var ballMaterial;
 var debug = false;
 var paddleSpeed = 200;
+
 
 function create() {
     game.physics.startSystem(Phaser.Physics.P2JS);
@@ -37,14 +41,14 @@ function create() {
     
     
     // paddle1
-    paddle1 = game.add.sprite(20, 300, 'paddleLeft');
+    paddle1 = game.add.sprite(100, 300, 'paddleLeft');
     game.physics.p2.enable(paddle1, debug);
     paddle1.body.collideWorldBounds = true;
     paddle1.body.fixedRotation = true;
     paddle1.body.static = true;
     
     // paddle2
-    paddle2 = game.add.sprite(980, 300, 'paddleRight');
+    paddle2 = game.add.sprite(700, 900, 'paddleRight');
     game.physics.p2.enable(paddle2, debug);
     paddle2.body.collideWorldBounds = true;
     paddle2.body.fixedRotation = true;
@@ -58,11 +62,15 @@ function create() {
 }
 
 function createField() {
-    var poly = new Phaser.Polygon( 
+    var poly = new Phaser.Polygon ( 
         { x: 100, y: 100 }, 
-        { x: 900, y: 100 }, 
-        { x: 900, y: 500 }, 
-        { x: 100, y: 500 });
+        { x: 500, y: 100 }, 
+        { x: 900, y: 500 },
+        { x: 900, y: 900 },
+        { x: 500, y: 900 },
+        { x: 500, y: 500 },
+        { x: 100, y: 500 }
+    );
     var graphics = game.add.graphics(0,0);
     graphics.beginFill(0xFF33ff);
     graphics.drawPolygon(poly.points);

@@ -1,0 +1,21 @@
+{ 
+    
+    "LSpielfeld": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   924, 670  ,  323, 68  ,  924, 68  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   623, 370  ,  924, 670  ,  623, 670  ]
+        } ,
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   323, 68  ,  623, 370  ,  323, 370  ]
+        }
+    ]
+}
