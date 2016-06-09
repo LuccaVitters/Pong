@@ -6,8 +6,8 @@ var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload
 function preload() {
     
     game.load.image('ball', 'assets/ball.png');
-    game.load.image('paddleLeft', 'assets/paddle.png');
-    game.load.image('paddleRight', 'assets/paddle.png');
+    game.load.image('paddle1', 'assets/paddle.png');
+    game.load.image('paddle2', 'assets/paddle.png');
     
     game.load.image('texture', 'assets/texture.png');
     
@@ -52,14 +52,14 @@ function create() {
     
     
     // paddle1
-    paddle1 = game.add.sprite(100, 300, 'paddleLeft');
+    paddle1 = game.add.sprite(100, 300, 'paddle1');
     game.physics.p2.enable(paddle1, debug);
     paddle1.body.collideWorldBounds = true;
     paddle1.body.fixedRotation = true;
     paddle1.body.static = true;
     
     // paddle2
-    paddle2 = game.add.sprite(700, 900, 'paddleRight');
+    paddle2 = game.add.sprite(700, 900, 'paddle2');
     game.physics.p2.enable(paddle2, debug);
     paddle2.body.collideWorldBounds = true;
     paddle2.body.fixedRotation = true;
