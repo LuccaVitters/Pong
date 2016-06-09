@@ -15,6 +15,7 @@ var Wkey;
 var Akey;
 var ballMaterial;
 var debug = false;
+var paddleSpeed = 200;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.P2JS);
@@ -58,16 +59,16 @@ function update() {
     // paddle1
     paddle1.body.setZeroVelocity();
     if (Wkey.isDown) {
-        paddleLeft.body.velocity.y = -200;
+        paddle1.body.moveUp(paddleSpeed);
     } else if (Skey.isDown) {
-        paddleLeft.body.velocity.y = 200;
+        paddle1.body.moveDown(paddleSpeed);
     }
     
     // paddle2
     paddle2.body.setZeroVelocity();
     if (cursors.up.isDown) {
-        paddle2.body.velocity.y = -200;
+        paddle2.body.moveUp(paddleSpeed);
     } else if (cursors.down.isDown) {
-        paddle2.body.velocity.y = 200;
+        paddle2.body.moveDown(paddleSpeed);
     }
 }
