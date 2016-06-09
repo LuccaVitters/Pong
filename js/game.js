@@ -42,7 +42,7 @@ function create() {
     paddle1.body.static = true;
     
     // paddle2
-    paddle2 = game.add.sprite(970, 300, 'paddleRight');
+    paddle2 = game.add.sprite(980, 300, 'paddleRight');
     game.physics.p2.enable(paddle2, debug);
     paddle2.body.collideWorldBounds = true;
     paddle2.body.fixedRotation = true;
