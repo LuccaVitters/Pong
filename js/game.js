@@ -55,24 +55,18 @@ function create() {
 
 function update() {
     // paddle1
-    paddleLeft.body.setZeroVelocity();
-    if (Wkey.isDown)
-    {
+    paddle1.body.setZeroVelocity();
+    if (Wkey.isDown) {
         paddleLeft.body.velocity.y = -200;
-    }
-    else if (Skey.isDown)
-    {
+    } else if (Skey.isDown) {
         paddleLeft.body.velocity.y = 200;
     }
     
     // paddle2
     paddle2.body.setZeroVelocity();
-    if (cursors.up.isDown)
-    {
+    if (cursors.up.isDown) {
         paddle2.body.velocity.y = -200;
-    }
-    else if (cursors.down.isDown)
-    {
+    } else if (cursors.down.isDown) {
         paddle2.body.velocity.y = 200;
     }
 }
