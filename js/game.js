@@ -7,7 +7,6 @@ function preload() {
     game.load.image('paddleRight', 'assets/paddle.png');
 }
 
-
 var ball;
 var paddleLeft;
 var paddleRight;
