@@ -9,10 +9,10 @@ function preload() {
     game.load.image('paddle1', 'assets/paddle.png');
     game.load.image('paddle2', 'assets/paddle.png');
     
-    game.load.image('texture', 'assets/texture.png');
+    // game.load.image('texture', 'assets/texture.png');
     
-    game.load.image("LSpielfeld", "assets/LSpielfeld.png");
-    game.load.physics("LSpielfeld_physics", "assets/LSpielfeld.json");
+    game.load.image("map01", "assets/map01.png");
+    game.load.physics("map01_physics", "assets/map01.json");
 }
 
 var ball;
@@ -36,10 +36,10 @@ function create() {
     
     createField();
     
-    field = game.add.sprite(600, 500, 'LSpielfeld');
+    field = game.add.sprite(600, 500, 'map01');
     game.physics.p2.enable(field, debug);
     field.body.clearShapes();
-    field.body.loadPolygon("LSpielfeld_physics", "LSpielfeld");
+    field.body.loadPolygon("map01_physics", "LSpielfeld"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
     field.body.static = true;
     
     // ball
@@ -83,7 +83,7 @@ function createField() {
         { x: 100, y: 500 }
     );
     var graphics = game.add.graphics(0,0);
-    game.add.sprite(100, 100, 'texture');
+    // game.add.sprite(100, 100, 'texture');
     graphics.beginFill(0xFF33ff);
     graphics.drawPolygon(poly.points);
     graphics.endFill();
