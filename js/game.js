@@ -1,5 +1,5 @@
-var canvasWidth = 1200;
-var canvasHeight = 1200;
+var canvasWidth = 1280;
+var canvasHeight = 720;
 
 var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
@@ -10,8 +10,8 @@ function preload() {
     
     // game.load.image('texture', 'assets/texture.png');
     
-    game.load.image("map01", "assets/map01.png");
-    game.load.physics("map01_physics", "assets/map01.json");
+    game.load.image("map03", "assets/map03.png");
+    game.load.physics("map03_physics", "assets/map03.json");
 }
 
 var ball;
@@ -34,10 +34,10 @@ function create() {
     game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
     
-    field = game.add.sprite(600, 500, 'map01');
+    field = game.add.sprite(600/2, 500/2, 'map03');
     game.physics.p2.enable(field, debug);
     field.body.clearShapes();
-    field.body.loadPolygon("map01_physics", "map01"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
+    field.body.loadPolygon("map03_physics", "map03"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
     field.body.static = true;
     
     // ball
@@ -48,8 +48,8 @@ function create() {
     ball.body.velocity.y = 200;
     ball.body.setCircle(20);
     
-    paddle1 = createPaddle(100, 300);
-    paddle2 = createPaddle(700, 900);
+    paddle1 = createPaddle(100, 300, 0);
+    paddle2 = createPaddle(700, 900, 90);
     
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -58,9 +58,10 @@ function create() {
         
 }
 
-function createPaddle(x, y) {
+function createPaddle(x, y, rotation) {
     var paddle = game.add.sprite(x, y, 'paddle');
     game.physics.p2.enable(paddle, debug);
+    paddle.body.rotation = rotation;
     paddle.body.fixedRotation = true;
     paddle.body.static = true;
     return paddle;
