@@ -6,8 +6,7 @@ var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload
 function preload() {
     
     game.load.image('ball', 'assets/ball.png');
-    game.load.image('paddle1', 'assets/paddle.png');
-    game.load.image('paddle2', 'assets/paddle.png');
+    game.load.image('paddle', 'assets/paddle.png');
     
     // game.load.image('texture', 'assets/texture.png');
     
@@ -49,26 +48,22 @@ function create() {
     ball.body.velocity.y = 200;
     ball.body.setCircle(20);
     
-    
-    // paddle1
-    paddle1 = game.add.sprite(100, 300, 'paddle1');
-    game.physics.p2.enable(paddle1, debug);
-    paddle1.body.collideWorldBounds = true;
-    paddle1.body.fixedRotation = true;
-    paddle1.body.static = true;
-    
-    // paddle2
-    paddle2 = game.add.sprite(700, 900, 'paddle2');
-    game.physics.p2.enable(paddle2, debug);
-    paddle2.body.collideWorldBounds = true;
-    paddle2.body.fixedRotation = true;
-    paddle2.body.static = true;
+    paddle1 = createPaddle(100, 300);
+    paddle2 = createPaddle(700, 900);
     
     cursors = game.input.keyboard.createCursorKeys();
 
     Wkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
     Skey = game.input.keyboard.addKey(Phaser.Keyboard.S);
         
+}
+
+function createPaddle(x, y) {
+    var paddle = game.add.sprite(x, y, 'paddle');
+    game.physics.p2.enable(paddle, debug);
+    paddle.body.fixedRotation = true;
+    paddle.body.static = true;
+    return paddle;
 }
 
 
