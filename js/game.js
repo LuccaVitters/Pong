@@ -61,8 +61,7 @@ function create() {
 function createPaddle(x, y) {
     var paddle = game.add.sprite(x, y, 'paddle');
     game.physics.p2.enable(paddle, debug);
-    paddle.body.fixedRotation = true;
-    paddle.body.static = true;
+    paddle.body.kinematic = true;
     return paddle;
 }
 
