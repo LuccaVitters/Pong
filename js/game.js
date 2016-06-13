@@ -83,4 +83,9 @@ function update() {
     } else if (cursors.down.isDown) {
         paddle2.body.moveDown(paddleSpeed);
     }
+    
+    var ballSpeed = Math.sqrt(Math.pow(ball.body.velocity.x, 2) + Math.pow(ball.body.velocity.y, 2));
+    game.debug.start(20, 20, 'white');
+    game.debug.line("Ball speed: " + ballSpeed);
+    game.debug.stop();
 }
