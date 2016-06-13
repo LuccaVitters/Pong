@@ -34,10 +34,17 @@ function create() {
     game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
     
+<<<<<<< HEAD
     field = game.add.sprite(600/2, 500/2, 'map03');
     game.physics.p2.enable(field, debug);
     field.body.clearShapes();
     field.body.loadPolygon("map03_physics", "map03"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
+=======
+    field = game.add.sprite(canvasWidth/2, canvasHeight/2, 'map01');
+    game.physics.p2.enable(field, debug);
+    field.body.clearShapes();
+    field.body.loadPolygon("map01_physics", "map01");
+>>>>>>> 422794241064c9184f8f87d3d0a7ed75a1308588
     field.body.static = true;
     
     // ball
@@ -61,9 +68,14 @@ function create() {
 function createPaddle(x, y, rotation) {
     var paddle = game.add.sprite(x, y, 'paddle');
     game.physics.p2.enable(paddle, debug);
+<<<<<<< HEAD
     paddle.body.rotation = rotation;
     paddle.body.fixedRotation = true;
     paddle.body.static = true;
+=======
+    paddle.body.kinematic = true;
+    paddle.body.rotation = rotation / 180 * Math.PI;
+>>>>>>> 422794241064c9184f8f87d3d0a7ed75a1308588
     return paddle;
 }
 
