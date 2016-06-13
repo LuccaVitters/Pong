@@ -5,22 +5,22 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   621, 51  ,  1281, 2  ,  1278, 707  ]
+            "shape": [   0, 91  ,  523, 91  ,  522, 151  ,  0, 670  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   -1, 0  ,  621, 51  ,  0, 675  ]
+            "shape": [   721, 151  ,  720, 91  ,  1280, 93  ,  1279, 708  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   -1, 0  ,  1281, 2  ,  621, 51  ]
+            "shape": [   720, 91  ,  721, 151  ,  522, 151  ,  523, 91  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   308, 720  ,  624, 406  ,  932, 720  ]
+            "shape": [   309, 720  ,  621, 407  ,  937, 720  ]
         }
     ]
 }
