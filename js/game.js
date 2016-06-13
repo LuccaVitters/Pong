@@ -1,7 +1,7 @@
 var canvasWidth = 1280;
 var canvasHeight = 720;
 
-var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
     
@@ -84,8 +84,14 @@ function update() {
         paddle2.body.moveBackward(paddleSpeed);
     }
     
-    var ballSpeed = Math.sqrt(Math.pow(ball.body.velocity.x, 2) + Math.pow(ball.body.velocity.y, 2));
-    game.debug.start(20, 20, 'white');
-    game.debug.line("Ball speed: " + ballSpeed);
-    game.debug.stop();
+    
+}
+
+function render() {
+    if (debug) {
+        var ballSpeed = Math.sqrt(Math.pow(ball.body.velocity.x, 2) + Math.pow(ball.body.velocity.y, 2));
+        game.debug.start(20, 20, 'white');
+        game.debug.line("Ball speed: " + ballSpeed);
+        game.debug.stop();
+    }
 }
