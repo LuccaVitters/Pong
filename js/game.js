@@ -1,5 +1,5 @@
-var canvasWidth = 1200;
-var canvasHeight = 1200;
+var canvasWidth = 1280;
+var canvasHeight = 720;
 
 var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
@@ -34,7 +34,7 @@ function create() {
     game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
     
-    field = game.add.sprite(600, 500, 'map01');
+    field = game.add.sprite(canvasWidth/2, canvasHeight/2, 'map01');
     game.physics.p2.enable(field, debug);
     field.body.clearShapes();
     field.body.loadPolygon("map01_physics", "map01");
