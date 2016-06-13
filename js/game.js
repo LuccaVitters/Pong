@@ -71,17 +71,17 @@ function update() {
     // paddle1
     paddle1.body.setZeroVelocity();
     if (Wkey.isDown) {
-        paddle1.body.moveUp(paddleSpeed);
+        paddle1.body.moveForward(paddleSpeed);
     } else if (Skey.isDown) {
-        paddle1.body.moveDown(paddleSpeed);
+        paddle1.body.moveBackward(paddleSpeed);
     }
     
     // paddle2
     paddle2.body.setZeroVelocity();
     if (cursors.up.isDown) {
-        paddle2.body.moveUp(paddleSpeed);
+        paddle2.body.moveForward(paddleSpeed);
     } else if (cursors.down.isDown) {
-        paddle2.body.moveDown(paddleSpeed);
+        paddle2.body.moveBackward(paddleSpeed);
     }
     
     var ballSpeed = Math.sqrt(Math.pow(ball.body.velocity.x, 2) + Math.pow(ball.body.velocity.y, 2));
