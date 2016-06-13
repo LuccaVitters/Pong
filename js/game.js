@@ -48,8 +48,8 @@ function create() {
     ball.body.velocity.y = 200;
     ball.body.setCircle(20);
     
-    paddle1 = createPaddle(300, 300, -45);
-    paddle2 = createPaddle(900, 300, 45);
+    paddle1 = createPaddle(350, 700, -45);
+    paddle2 = createPaddle(930, 700, 45);
     
     cursors = game.input.keyboard.createCursorKeys();
 
