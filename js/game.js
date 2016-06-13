@@ -37,7 +37,7 @@ function create() {
     field = game.add.sprite(600, 500, 'map01');
     game.physics.p2.enable(field, debug);
     field.body.clearShapes();
-    field.body.loadPolygon("map01_physics", "map01"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
+    field.body.loadPolygon("map01_physics", "map01");
     field.body.static = true;
     
     // ball
