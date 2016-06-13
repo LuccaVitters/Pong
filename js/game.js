@@ -48,8 +48,8 @@ function create() {
     ball.body.velocity.y = 200;
     ball.body.setCircle(20);
     
-    paddle1 = createPaddle(100, 300);
-    paddle2 = createPaddle(700, 900);
+    paddle1 = createPaddle(100, 300, 0);
+    paddle2 = createPaddle(700, 900, 90);
     
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -58,10 +58,11 @@ function create() {
         
 }
 
-function createPaddle(x, y) {
+function createPaddle(x, y, rotation) {
     var paddle = game.add.sprite(x, y, 'paddle');
     game.physics.p2.enable(paddle, debug);
     paddle.body.kinematic = true;
+    paddle.body.rotation = rotation / 180 * Math.PI;
     return paddle;
 }
 
