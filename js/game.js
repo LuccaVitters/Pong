@@ -34,7 +34,6 @@ function create() {
     ballMaterial = game.physics.p2.createMaterial();
     game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
-    createField();
     
     field = game.add.sprite(600, 500, 'map01');
     game.physics.p2.enable(field, debug);
@@ -72,22 +71,6 @@ function create() {
         
 }
 
-function createField() {
-    var poly = new Phaser.Polygon ( 
-        { x: 100, y: 100 }, 
-        { x: 500, y: 100 }, 
-        { x: 900, y: 500 },
-        { x: 900, y: 900 },
-        { x: 500, y: 900 },
-        { x: 500, y: 500 },
-        { x: 100, y: 500 }
-    );
-    var graphics = game.add.graphics(0,0);
-    // game.add.sprite(100, 100, 'texture');
-    graphics.beginFill(0xFF33ff);
-    graphics.drawPolygon(poly.points);
-    graphics.endFill();
-}
 
 function update() {
     // paddle1
