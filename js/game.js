@@ -1,5 +1,5 @@
 var canvasWidth = 1200;
-var canvasHeight = 800;
+var canvasHeight = 1200;
 
 var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
@@ -39,7 +39,7 @@ function create() {
     field = game.add.sprite(600, 500, 'map01');
     game.physics.p2.enable(field, debug);
     field.body.clearShapes();
-    field.body.loadPolygon("map01_physics", "LSpielfeld"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
+    field.body.loadPolygon("map01_physics", "map01"); // warum kann man "LSpielfeld" hier nicht umbenennen Alex?
     field.body.static = true;
     
     // ball
