@@ -1,31 +1,26 @@
 { 
     
-    "map03": [
+    "map01": [
         
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   1035, 440  ,  1279, 0  ,  1278, 684  ]
+            "shape": [   621, 51  ,  1281, 2  ,  1278, 707  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   712, 118  ,  1279, 0  ,  1035, 440  ]
+            "shape": [   -1, 0  ,  621, 51  ,  0, 675  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   1, 1  ,  542, 119  ,  0, 659  ]
+            "shape": [   -1, 0  ,  1281, 2  ,  621, 51  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   712, 118  ,  542, 119  ,  1, 1  ,  1279, 0  ]
-        } ,
-        {
-            "density": 2, "friction": 0, "bounce": 0, 
-            "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   346, 720  ,  628, 440  ,  905, 721  ]
+            "shape": [   308, 720  ,  624, 406  ,  932, 720  ]
         }
     ]
 }
