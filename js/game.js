@@ -63,7 +63,7 @@ function createBall(x, y, speed, rotation) {
     game.physics.p2.enable(ball, debug);
     ball.body.rotation = rotation / 180 * Math.PI;
     ball.body.moveForward(speed);
-    ball.body.setCircle(20);
+    ball.body.setCircle(ball.width / 2);
     return ball;
 }
 
