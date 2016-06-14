@@ -20,6 +20,7 @@ var paddle2;
 var cursors;
 var Wkey;
 var Akey;
+var debugKey;
 var ballMaterial;
 var debug = false;
 var paddleSpeed = 200;
@@ -55,6 +56,9 @@ function create() {
 
     Wkey = game.input.keyboard.addKey(Phaser.KeyCode.W);
     Skey = game.input.keyboard.addKey(Phaser.KeyCode.S);
+    
+    debugKey = game.input.keyboard.addKey(Phaser.KeyCode.TAB);
+    debugKey.onDown.add(onDebugKeyDown, this);
         
 }
 
@@ -66,6 +70,19 @@ function createPaddle(x, y, rotation) {
     return paddle;
 }
 
+function onDebugKeyDown() { 
+    // toggle
+    debug = !debug;
+    
+    // apply to bodies
+    ball.body.debug = debug;
+    paddle1.body.debug = debug;
+    paddle2.body.debug = debug;
+    field.body.debug = debug;
+    
+    // apply to debug canvas
+    game.debug.reset();
+}
 
 function update() {
     // paddle1
@@ -83,13 +100,12 @@ function update() {
     } else if (cursors.down.isDown) {
         paddle2.body.moveBackward(paddleSpeed);
     }
-    
-    
 }
 
 function render() {
     if (debug) {
         var ballSpeed = Math.sqrt(Math.pow(ball.body.velocity.x, 2) + Math.pow(ball.body.velocity.y, 2));
+        
         game.debug.start(20, 20, 'white');
         game.debug.line("Ball speed: " + ballSpeed);
         game.debug.line("Ball angular speed: " + ball.body.angularVelocity);
