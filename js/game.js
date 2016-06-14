@@ -21,7 +21,7 @@ var cursors;
 var Wkey;
 var Akey;
 var ballMaterial;
-var debug = false;
+var debug = true;
 var paddleSpeed = 200;
 var field;
 
