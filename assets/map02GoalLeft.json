@@ -1,0 +1,11 @@
+{ 
+    
+    "map02GoalLeft": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   196, 655  ,  618, 656  ,  617, 689  ,  196, 689  ]
+        }
+    ]
+}
