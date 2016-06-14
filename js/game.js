@@ -34,20 +34,8 @@ function create() {
     ballMaterial = game.physics.p2.createMaterial();
     game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
     
-    
-    field = game.add.sprite(canvasWidth/2, canvasHeight/2, 'map01');
-    game.physics.p2.enable(field, debug);
-    field.body.clearShapes();
-    field.body.loadPolygon("map01_physics", "map01");
-    field.body.static = true;
-    
-    // ball
-    ball = game.add.sprite(380, 150, 'ball');
-    game.physics.p2.enable(ball, debug);
-    ball.body.rotation = 45 / 180 * Math.PI;
-    ball.body.moveForward(200);
-    ball.body.setCircle(20);
-    
+    field = createField();
+    ball = createBall(380, 150, 200, 45);
     paddle1 = createPaddle(230, 500, -45);
     paddle2 = createPaddle(1050, 500, 45);
     
@@ -59,6 +47,24 @@ function create() {
     debugKey = game.input.keyboard.addKey(Phaser.KeyCode.TAB);
     debugKey.onDown.add(onDebugKeyDown, this);
         
+}
+
+function createField() {
+    var field = game.add.sprite(canvasWidth/2, canvasHeight/2, 'map01');
+    game.physics.p2.enable(field, debug);
+    field.body.clearShapes();
+    field.body.loadPolygon("map01_physics", "map01");
+    field.body.static = true;
+    return field;
+}
+
+function createBall(x, y, speed, rotation) {
+    var ball = game.add.sprite(x, y, 'ball');
+    game.physics.p2.enable(ball, debug);
+    ball.body.rotation = rotation / 180 * Math.PI;
+    ball.body.moveForward(speed);
+    ball.body.setCircle(20);
+    return ball;
 }
 
 function createPaddle(x, y, rotation) {
