@@ -22,7 +22,7 @@ var Wkey;
 var Akey;
 var debugKey;
 var ballMaterial;
-var debug = false;
+var debug = true;
 var paddleSpeed = 200;
 var field;
 
@@ -49,8 +49,8 @@ function create() {
     ball.body.velocity.y = 200;
     ball.body.setCircle(20);
     
-    paddle1 = createPaddle(350, 700, -45);
-    paddle2 = createPaddle(930, 700, 45);
+    paddle1 = createPaddle(230, 500, -45);
+    paddle2 = createPaddle(1050, 500, 45);
     
     cursors = game.input.keyboard.createCursorKeys();
 

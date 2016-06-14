@@ -1,0 +1,11 @@
+{ 
+    
+    "map01GoalRight": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   979, 720  ,  943, 682  ,  1229, 394  ,  1281, 445  ,  1279, 720  ]
+        }
+    ]
+}
