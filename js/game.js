@@ -22,7 +22,7 @@ var Wkey;
 var Akey;
 var debugKey;
 var ballMaterial;
-var debug = true;
+var debug = false;
 var paddleSpeed = 200;
 var field;
 
