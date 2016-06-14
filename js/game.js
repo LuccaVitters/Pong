@@ -53,8 +53,8 @@ function create() {
     
     cursors = game.input.keyboard.createCursorKeys();
 
-    Wkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
-    Skey = game.input.keyboard.addKey(Phaser.Keyboard.S);
+    Wkey = game.input.keyboard.addKey(Phaser.KeyCode.W);
+    Skey = game.input.keyboard.addKey(Phaser.KeyCode.S);
         
 }
 
