@@ -44,7 +44,6 @@ function create() {
     // ball
     ball = game.add.sprite(380, 150, 'ball');
     game.physics.p2.enable(ball, debug);
-    ball.body.collideWorldBounds = true;
     ball.body.velocity.x = 200;
     ball.body.velocity.y = 200;
     ball.body.setCircle(20);
