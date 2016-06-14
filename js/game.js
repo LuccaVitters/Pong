@@ -42,7 +42,7 @@ function create() {
     field.body.static = true;
     
     // ball
-    ball = game.add.sprite(380, 280, 'ball');
+    ball = game.add.sprite(380, 150, 'ball');
     game.physics.p2.enable(ball, debug);
     ball.body.collideWorldBounds = true;
     ball.body.velocity.x = 200;
