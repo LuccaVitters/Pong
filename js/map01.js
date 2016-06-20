@@ -1,16 +1,12 @@
 var map01 = function(game){
     
     var ball;
-    var paddle1;
-    var paddle2;
-    var Wkey, Akey;
-    var UpKey, DownKey;
     var debugKey;
     var ballMaterial;
     var debug;
     var paddleSpeed;
     var field;
-    
+    var player1, player2;
 }
 
 map01.prototype = {
@@ -22,9 +18,6 @@ map01.prototype = {
         this.game.load.image("map01", "assets/map01.png");
         this.game.load.physics("map01_physics", "assets/map01.json");
     },
-
-
-
 
     create: function () {
         
@@ -40,19 +33,32 @@ map01.prototype = {
 
         field = this.createField();
         ball = this.createBall(380, 150, 200, 45);
-        paddle1 = this.createPaddle(230, 500, -45);
-        paddle2 = this.createPaddle(1050, 500, 45);
-
-        Wkey = this.game.input.keyboard.addKey(Phaser.KeyCode.W);
-        Skey = this.game.input.keyboard.addKey(Phaser.KeyCode.S);
-
-        UpKey = this.game.input.keyboard.addKey(Phaser.KeyCode.UP);
-        DownKey = this.game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
-
+        
+        player1 = this.createPlayer(230, 500, -45, Phaser.KeyCode.W, Phaser.KeyCode.S);
+        player2 = this.createPlayer(1050, 500, 45, Phaser.KeyCode.UP, Phaser.KeyCode.DOWN);
+        
         debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
         debugKey.onDown.add(this.onDebugKeyDown, this);
     },
-
+    
+    createPlayer: function (paddleX, paddleY, paddleRotation, forwardKey, backwardKey) {
+        return {
+            paddle: this.createPaddle(paddleX, paddleY, paddleRotation),
+            controls: {
+                forwardKey: this.game.input.keyboard.addKey(forwardKey),
+                backwardKey: this.game.input.keyboard.addKey(backwardKey)
+            }
+        };
+    },
+    
+    createPaddle: function (x, y, rotation) {
+        var paddle = this.game.add.sprite(x, y, 'paddle');
+        this.game.physics.p2.enable(paddle, this.debug);
+        paddle.body.kinematic = true;
+        paddle.body.rotation = rotation / 180 * Math.PI;
+        return paddle;
+    },
+    
     createField: function () {
         var field = this.game.add.sprite(1280/2, 720/2, 'map01');
         this.game.physics.p2.enable(field, this.debug);
@@ -70,23 +76,15 @@ map01.prototype = {
         ball.body.setCircle(ball.width / 2);
         return ball;
     },
-
-    createPaddle: function (x, y, rotation) {
-        var paddle = this.game.add.sprite(x, y, 'paddle');
-        this.game.physics.p2.enable(paddle, this.debug);
-        paddle.body.kinematic = true;
-        paddle.body.rotation = rotation / 180 * Math.PI;
-        return paddle;
-    },
-
+    
     onDebugKeyDown: function () { 
         // toggle
         debug = !debug;
 
         // apply to bodies
         ball.body.debug = debug;
-        paddle1.body.debug = debug;
-        paddle2.body.debug = debug;
+        player1.paddle.body.debug = debug;
+        player2.paddle.body.debug = debug;
         field.body.debug = debug;
 
         // apply to debug canvas
@@ -94,20 +92,18 @@ map01.prototype = {
     },
 
     update: function () {
-        // paddle1
-        paddle1.body.setZeroVelocity();
-        if (Wkey.isDown) {
-            paddle1.body.moveForward(paddleSpeed);
-        } else if (Skey.isDown) {
-            paddle1.body.moveBackward(paddleSpeed);
+        this.updatePlayer(player1);
+        this.updatePlayer(player2);
+    },
+        
+    updatePlayer: function (player) {
+        player.paddle.body.setZeroVelocity();
+        
+        if (player.controls.forwardKey.isDown) {
+            player.paddle.body.moveForward(paddleSpeed);
         }
-
-        // paddle2
-        paddle2.body.setZeroVelocity();
-        if (UpKey.isDown) {
-            paddle2.body.moveForward(paddleSpeed);
-        } else if (DownKey.isDown) {
-            paddle2.body.moveBackward(paddleSpeed);
+        if (player.controls.backwardKey.isDown) {
+            player.paddle.body.moveBackward(paddleSpeed);
         }
     },
 
