@@ -1,7 +1,17 @@
 #pongolf {
-   
+    position: relative;
+    left: 50%;
+    margin-left: -640px;
 }
 
-#website {
-    background-color:darkcyan;
+#logo {
+    width:1280px;
+    height:200px;
+    position: relative;
+    left: 50%;
+    margin-left: -640px;
+}
+
+body {
+    background-color: darkgoldenrod;
 }

@@ -1,7 +1,7 @@
 var canvasWidth = 1280;
 var canvasHeight = 720;
 
-var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, 'pongolf', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
     
