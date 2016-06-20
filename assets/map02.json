@@ -1,4 +1,4 @@
-{ 
+ { 
     
     "map02": [
         
@@ -11,11 +11,13 @@
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
             "shape": [   8, 3002  ,  5332, 2823  ,  5336, 3000  ]
-        } , , ,
+        } , 
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
             "shape": [   2800, 2100  ,  2801, 2860  ,  2540, 2860  ,  2538, 2100  ]
         }
     ]
-}
+} 
+
+
