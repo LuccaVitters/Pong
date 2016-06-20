@@ -39,15 +39,15 @@ map02.prototype = {
         this.game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
 
         field = this.createField();
-        ball = this.createBall(380, 150, 200, 45);
-        paddle1 = this.createPaddle(230, 500, -45);
-        paddle2 = this.createPaddle(1050, 500, 45);
+        ball = this.createBall(500, 400, 200, 45);
+        paddle1 = this.createPaddle(230, 625, 90);
+        paddle2 = this.createPaddle(1050, 625, 90);
 
-        Wkey = this.game.input.keyboard.addKey(Phaser.KeyCode.W);
-        Skey = this.game.input.keyboard.addKey(Phaser.KeyCode.S);
+        Wkey = this.game.input.keyboard.addKey(Phaser.KeyCode.D);
+        Skey = this.game.input.keyboard.addKey(Phaser.KeyCode.A);
 
-        UpKey = this.game.input.keyboard.addKey(Phaser.KeyCode.UP);
-        DownKey = this.game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
+        UpKey = this.game.input.keyboard.addKey(Phaser.KeyCode.RIGHT);
+        DownKey = this.game.input.keyboard.addKey(Phaser.KeyCode.LEFT);
 
         debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
         debugKey.onDown.add(this.onDebugKeyDown, this);
