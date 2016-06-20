@@ -76,13 +76,16 @@ Inhaltsverzeichnis
 		
 		3.1  Spielablauf
 
-		// TODO
-
-
+		Durch das implementieren verschiedener Map- Alternativen hat der Spieler die Möglichkeit mehr Abwechslung in das Gameplay zu bringen, indem er Schrägen und Objekte 
+		nutzt um den Ball gezielt in das gegnerische Tor zu schiessen. Die Geschwindigkeit des Balles wird die Reaktionszeit des Spielers auf die Probe stellen, und ihn ebenso
+		dazu zwingen die Schüsse und Abpraller von den Kollisionsobjekten vorherzusehen und vorrausschauend zu reagieren.
+		
+		
 		3.2  Level / Maps
 
-		// TODO
-
+		Die verschiedenen Maps leben von der Eigenschaft, dass sich der Ball anders als in der klassichen Version von Pong bewegt und den Spieler mehr fordert.
+		Es gibt 2(3) verschiedene Stages, welche auf einfachen geometrischen Formen basieren, die darauf abzielen stets einfach und überschaubar zu sein, andererseits aber auch eine
+		Alternative zu der schlichten, rechteckigen Map des originalen Pong zu bilden, sodass die Spielerfahrung durch die Mapelemente erweitert undn icht begrenzt wird.
 
 		3.3  Themes / Atmosphäre
 
