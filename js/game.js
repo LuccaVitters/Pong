@@ -24,6 +24,10 @@ var field;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.P2JS);
+    
+    //  Turn on impact events for the world, without this we get no collision callbacks
+    game.physics.p2.setImpactEvents(true);
+    
     game.physics.p2.restitution = 1;
     game.physics.p2.applyDamping = false;
     
@@ -35,12 +39,23 @@ function create() {
     paddle1 = createPaddle(230, 500, -45);
     paddle2 = createPaddle(1050, 500, 45);
     
+    // collision callbacks
+    var ballCollisionGroup = game.physics.p2.createCollisionGroup();
+    var fieldCollisionGroup = game.physics.p2.createCollisionGroup();
+    ball.body.setCollisionGroup(ballCollisionGroup);
+    field.body.setCollisionGroup(fieldCollisionGroup);
+    ball.body.collides(fieldCollisionGroup, hitMap);
+    field.body.collides(ballCollisionGroup, hitMap);
+    
+    // player 1 keys
     Wkey = game.input.keyboard.addKey(Phaser.KeyCode.W);
     Skey = game.input.keyboard.addKey(Phaser.KeyCode.S);
     
+    // player 2 keys
     UpKey = game.input.keyboard.addKey(Phaser.KeyCode.UP);
     DownKey = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
     
+    // debug keys
     debugKey = game.input.keyboard.addKey(Phaser.KeyCode.TAB);
     debugKey.onDown.add(onDebugKeyDown, this);
 }
@@ -69,6 +84,10 @@ function createPaddle(x, y, rotation) {
     paddle.body.kinematic = true;
     paddle.body.rotation = rotation / 180 * Math.PI;
     return paddle;
+}
+
+function hitMap(body1, body2) {
+    console.log("foobar");
 }
 
 function onDebugKeyDown() { 
