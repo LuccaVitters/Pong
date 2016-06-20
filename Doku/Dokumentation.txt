@@ -1,0 +1,102 @@
+Game Design Document - PongGolf
+
+
+Inhaltsverzeichnis
+
+1. Game Design
+    * Zusammenfassung / Wie kam uns die Idee?
+    * Gameplay	
+	
+2. Technik
+    * Mechanik
+    * Bildschirm / Oberfläche
+    * Steuerung
+	
+3. Level Design
+    * Spielablauf
+    * Level / Maps
+    * Themes / Atmosphäre
+
+4. Entwicklung
+    * Wie sind wir vorgegangen?
+    * // TODO Die wichtigsten Aspekte des Codes erläutern ( Wichtig! ) 
+	
+5. Grafik
+    * Gestaltung / Farbkonzept
+    * Stilrichtung
+	
+6. Sound / Musik
+    * Ingame Sounds
+    * „Soundtrack“
+
+7. Zeitplan	
+
+
+————————————————————————————————
+
+
+
+1. Game Design
+
+	1.1  Zusammenfassung 
+
+	Mit unserem Spiel „PongGolf“ wollten wir das Gameplay des klassischen Pong von 1972 mit Elementen aus MiniGolf Browsergames erweitern.
+
+
+	1.2  Gameplay
+
+	Das Ziel des Spiels ist unverändert zum Klassiker. Man versucht, den Ball so oft in das Tor des Gegners zu befördern, bis das vorher festgelegte Limit erreicht wurde.
+	Unser Fokus lag darauf, dass Spieltempo anzuziehen und durch neue Level und eingebaute Hindernisse/Powerups abwechslungsreicher zu gestalten, ohne das Gameplay vom 		Klassiker zu stark abzuändern. 
+	Es war uns wichtig, dass es sich wie „Pong 2.0“ anfühlt und nicht wie ein komplett neues Spiel. 
+	
+
+
+2. Technik 
+
+	2.1  Mechanik
+
+	// TODO
+
+	
+	2.2  Oberfläche
+
+	Aufbau des Hauptmenüs:
+			1. Level  Auswahl
+			2. Optionen ( evtl. Musik an/aus, Musik ändern ) 
+			3. Credits	
+
+	
+	2.3 Steuerung
+
+	Gesteuert wird das Spiel mit „A“ + „D“ und  ggf. „Linke / Rechte Pfeiltaste“ für den zweiten Spieler. Der Spieler hat nur die Kontrolle über die Schläger, wie beim Klassischen Pong.
+	
+
+
+3. Level Design
+		
+		3.1  Spielablauf
+
+		// TODO
+
+
+		3.2  Level / Maps
+
+		// TODO
+
+
+		3.3  Themes / Atmosphäre
+
+		// TODO
+
+
+
+4. Entwicklung
+		
+		4.1  Wie sind wir vorgegangen?
+
+		// TODO
+
+
+		4.2  Code-Erklärungen
+
+		// TODO Wichtig!
