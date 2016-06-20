@@ -45,7 +45,7 @@ function create() {
     ball.body.setCollisionGroup(ballCollisionGroup);
     field.body.setCollisionGroup(fieldCollisionGroup);
     ball.body.collides(fieldCollisionGroup, hitMap);
-    field.body.collides(ballCollisionGroup, hitMap);
+    field.body.collides(ballCollisionGroup);
     
     // player 1 keys
     Wkey = game.input.keyboard.addKey(Phaser.KeyCode.W);
