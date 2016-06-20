@@ -7,9 +7,6 @@ function preload() {
     
     game.load.image('ball', 'assets/ball.png');
     game.load.image('paddle', 'assets/paddle.png');
-    
-    // game.load.image('texture', 'assets/texture.png');
-    
     game.load.image("map01", "assets/map01.png");
     game.load.physics("map01_physics", "assets/map01.json");
 }
@@ -17,9 +14,8 @@ function preload() {
 var ball;
 var paddle1;
 var paddle2;
-var cursors;
-var Wkey;
-var Akey;
+var Wkey, Akey;
+var UpKey, DownKey;
 var debugKey;
 var ballMaterial;
 var debug = false;
@@ -39,14 +35,14 @@ function create() {
     paddle1 = createPaddle(230, 500, -45);
     paddle2 = createPaddle(1050, 500, 45);
     
-    cursors = game.input.keyboard.createCursorKeys();
-
     Wkey = game.input.keyboard.addKey(Phaser.KeyCode.W);
     Skey = game.input.keyboard.addKey(Phaser.KeyCode.S);
     
+    UpKey = game.input.keyboard.addKey(Phaser.KeyCode.UP);
+    DownKey = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
+    
     debugKey = game.input.keyboard.addKey(Phaser.KeyCode.TAB);
     debugKey.onDown.add(onDebugKeyDown, this);
-        
 }
 
 function createField() {
@@ -100,9 +96,9 @@ function update() {
     
     // paddle2
     paddle2.body.setZeroVelocity();
-    if (cursors.up.isDown) {
+    if (UpKey.isDown) {
         paddle2.body.moveForward(paddleSpeed);
-    } else if (cursors.down.isDown) {
+    } else if (DownKey.isDown) {
         paddle2.body.moveBackward(paddleSpeed);
     }
 }
