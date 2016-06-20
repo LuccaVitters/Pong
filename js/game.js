@@ -14,7 +14,7 @@ function preload() {
 var ball;
 var paddle1;
 var paddle2;
-var Wkey, Akey;
+var Wkey, Skey;
 var UpKey, DownKey;
 var debugKey;
 var ballMaterial;
