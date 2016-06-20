@@ -40,7 +40,7 @@ Inhaltsverzeichnis
 
 	1.1 Zusammenfassung 
 
-	Mit unserem Spiel „PongGolf“ wollten wir das Gameplay des klassischen Pong von 1972 mit Elementen aus MiniGolf Browsergames verbinden.
+	Mit unserem Spiel „PongGolf“ wollten wir das Gameplay des klassischen Pong von 1972 mit Elementen aus MiniGolf Browsergames erweitern.
 
 
 	1.2 Gameplay
