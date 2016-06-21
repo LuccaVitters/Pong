@@ -145,6 +145,8 @@ var gameProtoype = {
             this.game.debug.start(20, 20, 'white');
             this.game.debug.line("Ball speed: " + ballSpeed);
             this.game.debug.line("Ball angular speed: " + ball.sprite.body.angularVelocity);
+            this.game.debug.line("Mouse position x: " + this.game.input.mousePointer.x);
+            this.game.debug.line("Mouse position y: " + this.game.input.mousePointer.y);
             this.game.debug.stop();
         }
     },
