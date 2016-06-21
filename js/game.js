@@ -50,12 +50,10 @@ var gameProtoype = {
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
         
         this.fx = this.game.add.audio('ballHitWorld');
-        console.log(this.fx);
     },
     
     hitMap: function() {
         this.fx.play();
-        this.console.log("bam");
     },
     
     hitPaddle1: function() {
