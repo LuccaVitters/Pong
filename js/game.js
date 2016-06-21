@@ -21,7 +21,7 @@ var gameProtoype = {
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         
-        //  turn on impact events for the world, without this we get no collision callbacks
+        // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
         
         // needed for ball mechanics
