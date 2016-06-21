@@ -6,14 +6,14 @@ function map01(game) {
             rotation: 45, 
             speed: 200
         },
-        paddle1: {
+        player1: {
             x: 230, 
             y: 500, 
             rotation: -45,
             up: Phaser.KeyCode.W,
             down: Phaser.KeyCode.S
         },
-        paddle2: {
+        player2: {
             x: 1050, 
             y: 500, 
             rotation: 45,

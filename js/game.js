@@ -26,26 +26,26 @@ var gameProtoype = {
         var ballMaterial = this.game.physics.p2.createMaterial();
         this.game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
 
-        map = this.createMap();
-        ball = this.createBall(this.configuration.ball);
-        player1 = this.createPlayer(this.configuration.player1, "goal1");
-        player2 = this.createPlayer(this.configuration.player2, "goal2");
+        this.map = this.createMap();
+        this.ball = this.createBall(this.configuration.ball);
+        this.player1 = this.createPlayer(this.configuration.player1, "goal1");
+        this.player2 = this.createPlayer(this.configuration.player2, "goal2");
         
-        ball.sprite.body.collides(map.collisionGroup);
-        ball.sprite.body.collides(player1.paddle.collisionGroup);
-        ball.sprite.body.collides(player1.goal.collisionGroup);
-        ball.sprite.body.collides(player2.paddle.collisionGroup);
-        ball.sprite.body.collides(player2.goal.collisionGroup);
-        map.sprite.body.collides(ball.collisionGroup);
-        player1.paddle.sprite.body.collides(ball.collisionGroup);
-        player1.goal.sprite.body.collides(ball.collisionGroup);
-        player2.paddle.sprite.body.collides(ball.collisionGroup);
-        player2.goal.sprite.body.collides(ball.collisionGroup);
+        this.ball.sprite.body.collides(this.map.collisionGroup);
+        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup);
+        this.ball.sprite.body.collides(this.player1.goal.collisionGroup);
+        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup);
+        this.ball.sprite.body.collides(this.player2.goal.collisionGroup);
+        this.map.sprite.body.collides(this.ball.collisionGroup);
+        this.player1.paddle.sprite.body.collides(this.ball.collisionGroup);
+        this.player1.goal.sprite.body.collides(this.ball.collisionGroup);
+        this.player2.paddle.sprite.body.collides(this.ball.collisionGroup);
+        this.player2.goal.sprite.body.collides(this.ball.collisionGroup);
         
-        debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
-        debugKey.onDown.add(this.onDebugKeyDown, this);
+        this.debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
+        this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
-        menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+        this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
     },
     
     createMap: function () {
@@ -80,13 +80,16 @@ var gameProtoype = {
         };
     },
     
-    createPlayer: function (paddleX, paddleY, paddleRotation, forwardKey, backwardKey, goalKey) {
+    createPlayer: function (configuration, goalKey) {
         var player = {
-            paddle: this.createPaddle(paddleX, paddleY, paddleRotation),
+            paddle: this.createPaddle(
+                configuration.x, 
+                configuration.y, 
+                configuration.rotation),
             goal: this.createGoal(goalKey),
             controls: {
-                forwardKey: this.game.input.keyboard.addKey(forwardKey),
-                backwardKey: this.game.input.keyboard.addKey(backwardKey)
+                forwardKey: this.game.input.keyboard.addKey(configuration.up),
+                backwardKey: this.game.input.keyboard.addKey(configuration.down)
             }
         };
         return player;
@@ -124,30 +127,30 @@ var gameProtoype = {
     },
     
     update: function () {
-        this.updatePlayer(player1);
-        this.updatePlayer(player2);
+        this.updatePlayer(this.player1);
+        this.updatePlayer(this.player2);
     },
         
     updatePlayer: function (player) {
         player.paddle.sprite.body.setZeroVelocity();
         
         if (player.controls.forwardKey.isDown) {
-            player.paddle.sprite.body.moveForward(paddleSpeed);
+            player.paddle.sprite.body.moveForward(this.paddleSpeed);
         }
         if (player.controls.backwardKey.isDown) {
-            player.paddle.sprite.body.moveBackward(paddleSpeed);
+            player.paddle.sprite.body.moveBackward(this.paddleSpeed);
         }
     },
 
     render: function () {
-        if (debug) {
+        if (this.debug) {
             var ballSpeed = Math.sqrt(
-                Math.pow(ball.sprite.body.velocity.x, 2) + 
-                Math.pow(ball.sprite.body.velocity.y, 2));
+                Math.pow(this.ball.sprite.body.velocity.x, 2) + 
+                Math.pow(this.ball.sprite.body.velocity.y, 2));
 
             this.game.debug.start(20, 20, 'white');
-            this.game.debug.line("Ball speed: " + ballSpeed);
-            this.game.debug.line("Ball angular speed: " + ball.sprite.body.angularVelocity);
+            this.game.debug.line("Ball speed: " + this.ballSpeed);
+            this.game.debug.line("Ball angular speed: " + this.ball.sprite.body.angularVelocity);
             this.game.debug.line("Mouse position x: " + this.game.input.mousePointer.x);
             this.game.debug.line("Mouse position y: " + this.game.input.mousePointer.y);
             this.game.debug.stop();
@@ -160,13 +163,13 @@ var gameProtoype = {
     
     onDebugKeyDown: function () { 
         // toggle
-        debug = !debug;
+        this.debug = !this.debug;
 
         // apply to bodies
-        ball.sprite.body.debug = debug;
-        player1.paddle.sprite.body.debug = debug;
-        player2.paddle.sprite.body.debug = debug;
-        map.sprite.body.debug = debug;
+        this.ball.sprite.body.debug = this.debug;
+        this.player1.paddle.sprite.body.debug = this.debug;
+        this.player2.paddle.sprite.body.debug = this.debug;
+        this.map.sprite.body.debug = this.debug;
 
         // apply to debug canvas
         this.game.debug.reset();
