@@ -5,6 +5,7 @@ var gameProtoype = {
     ball: null,
     player1: null,
     player2: null,
+    fx: null,
     
     preload: function () {
         this.game.load.image('ball', this.configuration.assets.ball);
@@ -12,6 +13,7 @@ var gameProtoype = {
         this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
         this.game.load.physics("map_physics", this.configuration.assets.map_physics);
         this.game.load.image('menuButton','assets/menuButton.png');
+        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
     },
 
     create: function () {
@@ -46,10 +48,14 @@ var gameProtoype = {
         this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+        
+        this.fx = this.game.add.audio('ballHitWorld');
+        console.log(this.fx);
     },
     
     hitMap: function() {
-        
+        this.fx.play();
+        this.console.log("bam");
     },
     
     hitPaddle1: function() {
