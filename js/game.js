@@ -6,6 +6,7 @@ var gameProtoype = {
     player1: null,
     player2: null,
     fx: null,
+    music: null;
     
     preload: function () {
         this.game.load.image('ball', this.configuration.assets.ball);
@@ -13,6 +14,7 @@ var gameProtoype = {
         this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
         this.game.load.physics("map_physics", this.configuration.assets.map_physics);
         this.game.load.image('menuButton','assets/menuButton.png');
+        this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
     },
 
@@ -48,6 +50,9 @@ var gameProtoype = {
         this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+        
+        this.music = this.game.add.audio('track1');
+        this.music.play('track1');
         
         this.fx = this.game.add.audio('ballHitWorld');
         console.log(this.fx);
