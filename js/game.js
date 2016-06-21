@@ -69,7 +69,10 @@ var gameProtoype = {
     },
     
     createMap: function () {
-        var sprite = this.game.add.sprite(1280/2, 720/2, "map_sprite");
+        var sprite = this.game.add.sprite(
+            this.game.width / 2, 
+            this.game.height / 2, 
+            "map_sprite");
         this.game.physics.p2.enable(sprite);
         sprite.body.clearShapes();
         sprite.body.loadPolygon("map_physics", "map");
@@ -85,7 +88,10 @@ var gameProtoype = {
     },
     
     createBall: function (configuration) {
-        var sprite = this.game.add.sprite(configuration.x, configuration.y, "ball");
+        var sprite = this.game.add.sprite(
+            configuration.x, 
+            configuration.y, 
+            "ball");
         this.game.physics.p2.enable(sprite);
         sprite.body.rotation = configuration.rotation / 180 * Math.PI;
         sprite.body.moveForward(configuration.speed);
