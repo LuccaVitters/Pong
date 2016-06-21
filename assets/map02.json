@@ -1,7 +1,5 @@
 { 
-    
-    "map02": [
-        
+    "map": [
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
@@ -36,6 +34,22 @@
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
             "shape": [   611, 702  ,  611, 511  ,  671, 512  ,  672, 701  ]
+        }
+    ],
+	"goal1": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   199, 718  ,  199, 678  ,  621, 677  ,  621, 720  ]
+        }
+    ],
+	"goal2": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   665, 718  ,  665, 678  ,  1087, 677  ,  1087, 720  ]
         }
     ]
 }
