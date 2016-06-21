@@ -6,7 +6,7 @@ var gameProtoype = {
     player1: null,
     player2: null,
     fx: null,
-    music: null;
+    music: null,
     
     preload: function () {
         // image
