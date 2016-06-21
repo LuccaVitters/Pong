@@ -1,11 +1,11 @@
 { 
     
-    "map02GoalRight": [
+    "map02": [
         
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   1081, 660  ,  1082, 699  ,  669, 699  ,  669, 659  ]
+            "shape": [   665, 718  ,  665, 678  ,  1087, 677  ,  1087, 720  ]
         }
     ]
 }

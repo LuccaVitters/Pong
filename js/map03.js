@@ -14,10 +14,8 @@ map03.prototype = {
     preload: function () {
         this.game.load.image('ball', 'assets/ball.png');
         this.game.load.image('paddle', 'assets/paddle.png');
-        this.game.load.image("map03", "assets/map03.png");
-        this.game.load.physics("map03_physics", "assets/map03.json");
-        this.game.load.physics("map03GoalLeft", "assets/map03GoalLeft.json");
-        this.game.load.physics("map03GoalRight", "assets/map03GoalRight.json");
+        this.game.load.image("map_sprite", "assets/map03.png");
+        this.game.load.physics("map_physics", "assets/map03.json");
     },
 
     create: function () {
@@ -37,8 +35,8 @@ map03.prototype = {
 
         map = this.createMap();
         ball = this.createBall(380, 150, 200, 45);
-        player1 = this.createPlayer(230, 500, -45, Phaser.KeyCode.W, Phaser.KeyCode.S, "map03GoalLeft");
-        player2 = this.createPlayer(1050, 500, 45, Phaser.KeyCode.UP, Phaser.KeyCode.DOWN, "map03GoalRight");
+        player1 = this.createPlayer(230, 500, -45, Phaser.KeyCode.W, Phaser.KeyCode.S, "goal1");
+        player2 = this.createPlayer(1050, 500, 45, Phaser.KeyCode.UP, Phaser.KeyCode.DOWN, "goal2");
         
         ball.sprite.body.collides(map.collisionGroup);
         ball.sprite.body.collides(player1.paddle.collisionGroup);
@@ -56,10 +54,10 @@ map03.prototype = {
     },
     
     createMap: function () {
-        var sprite = this.game.add.sprite(1280/2, 720/2, 'map03');
+        var sprite = this.game.add.sprite(1280/2, 720/2, "map_sprite");
         this.game.physics.p2.enable(sprite);
         sprite.body.clearShapes();
-        sprite.body.loadPolygon("map03_physics", "map03");
+        sprite.body.loadPolygon("map_physics", "map");
         sprite.body.static = true;
         
         var collisionGroup = this.game.physics.p2.createCollisionGroup();
@@ -72,7 +70,7 @@ map03.prototype = {
     },
     
     createBall: function (x, y, speed, rotation) {
-        var sprite = this.game.add.sprite(x, y, 'ball');
+        var sprite = this.game.add.sprite(x, y, "ball");
         this.game.physics.p2.enable(sprite);
         sprite.body.rotation = rotation / 180 * Math.PI;
         sprite.body.moveForward(speed);
@@ -100,7 +98,7 @@ map03.prototype = {
     },
     
     createPaddle: function (x, y, rotation) {
-        var sprite = this.game.add.sprite(x, y, 'paddle');
+        var sprite = this.game.add.sprite(x, y, "paddle");
         this.game.physics.p2.enable(sprite);
         sprite.body.kinematic = true;
         sprite.body.rotation = rotation / 180 * Math.PI;
@@ -118,7 +116,7 @@ map03.prototype = {
         var sprite = this.game.add.sprite();
         this.game.physics.p2.enable(sprite);
         sprite.body.clearShapes();
-        sprite.body.loadPolygon(key, key);
+        sprite.body.loadPolygon("map_physics", key);
         sprite.body.static = true;
         
         var collisionGroup = this.game.physics.p2.createCollisionGroup();
