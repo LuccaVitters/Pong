@@ -8,6 +8,8 @@ var map02 = function(game){
     
     var debugKey;
     var debug;
+    
+    var menuButton;
 }
 
 map02.prototype = {
@@ -16,6 +18,7 @@ map02.prototype = {
         this.game.load.image('paddle', 'assets/paddle.png');
         this.game.load.image("map_sprite", "assets/map02.png");
         this.game.load.physics("map_physics", "assets/map02.json");
+        this.game.load.image('menuButton','assets/menuButton.png');
     },
 
     create: function () {
@@ -51,6 +54,13 @@ map02.prototype = {
         
         debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
         debugKey.onDown.add(this.onDebugKeyDown, this);
+        
+        menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+    },
+    
+    actionOnClickMenuButton: function () {
+
+         this.game.state.start("menu");
     },
     
     createMap: function () {
@@ -153,6 +163,8 @@ map02.prototype = {
             this.game.debug.start(20, 20, 'white');
             this.game.debug.line("Ball speed: " + ballSpeed);
             this.game.debug.line("Ball angular speed: " + ball.sprite.body.angularVelocity);
+            this.game.debug.line("Mouse position x: " + this.game.input.mousePointer.x);
+            this.game.debug.line("Mouse position y: " + this.game.input.mousePointer.y);
             this.game.debug.stop();
         }
     },
