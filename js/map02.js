@@ -35,8 +35,8 @@ map02.prototype = {
 
         map = this.createMap();
         ball = this.createBall(380, 150, 200, 45);
-        player1 = this.createPlayer(230, 500, -45, Phaser.KeyCode.W, Phaser.KeyCode.S, "goal1");
-        player2 = this.createPlayer(1050, 500, 45, Phaser.KeyCode.UP, Phaser.KeyCode.DOWN, "goal2");
+        player1 = this.createPlayer(380, 625, 90, Phaser.KeyCode.D, Phaser.KeyCode.A, "goal1");
+        player2 = this.createPlayer(900, 625, 90, Phaser.KeyCode.RIGHT, Phaser.KeyCode.LEFT, "goal2");
         
         ball.sprite.body.collides(map.collisionGroup);
         ball.sprite.body.collides(player1.paddle.collisionGroup);
