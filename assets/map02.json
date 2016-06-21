@@ -29,7 +29,7 @@
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
             "shape": [   1077, 690  ,  1279, 720  ,  -1, 719  ,  200, 690  ]
-        } , , ,
+        } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },

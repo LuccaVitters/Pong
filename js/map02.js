@@ -10,7 +10,7 @@ var map02 = function(game){
     var debug;
 }
 
-map01.prototype = {
+map02.prototype = {
     preload: function () {
         this.game.load.image('ball', 'assets/ball.png');
         this.game.load.image('paddle', 'assets/paddle.png');
