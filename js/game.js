@@ -116,7 +116,8 @@ var gameProtoype = {
             controls: {
                 forwardKey: this.game.input.keyboard.addKey(configuration.up),
                 backwardKey: this.game.input.keyboard.addKey(configuration.down)
-            }
+            },
+            score: 0
         };
         return player;
     },
