@@ -9,11 +9,16 @@ var gameProtoype = {
     music: null;
     
     preload: function () {
+        // image
         this.game.load.image('ball', this.configuration.assets.ball);
         this.game.load.image('paddle', this.configuration.assets.paddle);
         this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
-        this.game.load.physics("map_physics", this.configuration.assets.map_physics);
         this.game.load.image('menuButton','assets/menuButton.png');
+        
+        // physics
+        this.game.load.physics("map_physics", this.configuration.assets.map_physics);
+        
+        // audio
         this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
     },
