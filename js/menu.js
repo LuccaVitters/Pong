@@ -24,16 +24,21 @@ menu.prototype = {
 
     },
 
-    actionOnClickMap01: function  () {
+    actionOnClickMap01: function () {
 
         this.game.state.start('map01',false,false);
 
     },
 
-    actionOnClickMap02:  function  () {
+    actionOnClickMap02:  function () {
 
         this.game.state.start('map02',false,false);
 
+    },
+    
+    actionOnClickMap03: function () {
+        
+        this.game.state.start('map03',false,false);
     }
 }
 

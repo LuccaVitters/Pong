@@ -1,4 +1,4 @@
-var map01 = function(game){
+var map03 = function(game){
     
     var paddleSpeed;
     
@@ -10,14 +10,14 @@ var map01 = function(game){
     var debug;
 }
 
-map01.prototype = {
+map03.prototype = {
     preload: function () {
         this.game.load.image('ball', 'assets/ball.png');
         this.game.load.image('paddle', 'assets/paddle.png');
-        this.game.load.image("map01", "assets/map01.png");
-        this.game.load.physics("map01_physics", "assets/map01.json");
-        this.game.load.physics("map01GoalLeft", "assets/map01GoalLeft.json");
-        this.game.load.physics("map01GoalRight", "assets/map01GoalRight.json");
+        this.game.load.image("map03", "assets/map03.png");
+        this.game.load.physics("map03_physics", "assets/map03.json");
+        this.game.load.physics("map03GoalLeft", "assets/map03GoalLeft.json");
+        this.game.load.physics("map03GoalRight", "assets/map03GoalRight.json");
     },
 
     create: function () {
@@ -37,8 +37,8 @@ map01.prototype = {
 
         map = this.createMap();
         ball = this.createBall(380, 150, 200, 45);
-        player1 = this.createPlayer(230, 500, -45, Phaser.KeyCode.W, Phaser.KeyCode.S, "map01GoalLeft");
-        player2 = this.createPlayer(1050, 500, 45, Phaser.KeyCode.UP, Phaser.KeyCode.DOWN, "map01GoalRight");
+        player1 = this.createPlayer(230, 500, -45, Phaser.KeyCode.W, Phaser.KeyCode.S, "map03GoalLeft");
+        player2 = this.createPlayer(1050, 500, 45, Phaser.KeyCode.UP, Phaser.KeyCode.DOWN, "map03GoalRight");
         
         ball.sprite.body.collides(map.collisionGroup);
         ball.sprite.body.collides(player1.paddle.collisionGroup);
@@ -56,10 +56,10 @@ map01.prototype = {
     },
     
     createMap: function () {
-        var sprite = this.game.add.sprite(1280/2, 720/2, 'map01');
+        var sprite = this.game.add.sprite(1280/2, 720/2, 'map03');
         this.game.physics.p2.enable(sprite);
         sprite.body.clearShapes();
-        sprite.body.loadPolygon("map01_physics", "map01");
+        sprite.body.loadPolygon("map03_physics", "map03");
         sprite.body.static = true;
         
         var collisionGroup = this.game.physics.p2.createCollisionGroup();
