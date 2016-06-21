@@ -35,11 +35,11 @@ var gameProtoype = {
         this.player1 = this.createPlayer(this.configuration.player1, "goal1");
         this.player2 = this.createPlayer(this.configuration.player2, "goal2");
         
-        this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap);
-        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1);
-        this.ball.sprite.body.collides(this.player1.goal.collisionGroup, this.hitGoal1);
-        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup, this.hitPaddle2);
-        this.ball.sprite.body.collides(this.player2.goal.collisionGroup, this.hitGoal2);
+        this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap, this);
+        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1, this);
+        this.ball.sprite.body.collides(this.player1.goal.collisionGroup, this.hitGoal1, this);
+        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup, this.hitPaddle2, this);
+        this.ball.sprite.body.collides(this.player2.goal.collisionGroup, this.hitGoal2, this);
         this.map.sprite.body.collides(this.ball.collisionGroup);
         this.player1.paddle.sprite.body.collides(this.ball.collisionGroup);
         this.player1.goal.sprite.body.collides(this.ball.collisionGroup);
@@ -55,12 +55,10 @@ var gameProtoype = {
         this.music.play('track1');
         
         this.fx = this.game.add.audio('ballHitWorld');
-        console.log(this.fx);
     },
     
     hitMap: function() {
         this.fx.play();
-        this.console.log("bam");
     },
     
     hitPaddle1: function() {
