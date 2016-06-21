@@ -31,11 +31,11 @@ var gameProtoype = {
         this.player1 = this.createPlayer(this.configuration.player1, "goal1");
         this.player2 = this.createPlayer(this.configuration.player2, "goal2");
         
-        this.ball.sprite.body.collides(this.map.collisionGroup);
-        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup);
-        this.ball.sprite.body.collides(this.player1.goal.collisionGroup);
-        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup);
-        this.ball.sprite.body.collides(this.player2.goal.collisionGroup);
+        this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap);
+        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1);
+        this.ball.sprite.body.collides(this.player1.goal.collisionGroup, this.hitGoal1);
+        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup, this.hitPaddle2);
+        this.ball.sprite.body.collides(this.player2.goal.collisionGroup, this.hitGoal2);
         this.map.sprite.body.collides(this.ball.collisionGroup);
         this.player1.paddle.sprite.body.collides(this.ball.collisionGroup);
         this.player1.goal.sprite.body.collides(this.ball.collisionGroup);
@@ -46,6 +46,26 @@ var gameProtoype = {
         this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+    },
+    
+    hitMap: function() {
+        
+    },
+    
+    hitPaddle1: function() {
+        
+    },
+    
+    hitPaddle2: function() {
+        
+    },
+    
+    hitGoal1: function() {
+        
+    },
+    
+    hitGoal2: function() {
+        
     },
     
     createMap: function () {
