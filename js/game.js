@@ -5,38 +5,27 @@ var gameProtoype = {
     ball: null,
     player1: null,
     player2: null,
-<<<<<<< HEAD
     ballHitWorld: null,
     ballHitPaddle: null,
     track1: null,
     
     preload: function () {
+        
+        //audio
+        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
+        this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
         this.game.load.audio('track1', 'soundAssets/ZweihaenderVideoGames.mp3');
+        
+        //physics
+        this.game.load.physics("map_physics", this.configuration.assets.map_physics);
+        
+        //images
         this.game.load.image('ball', this.configuration.assets.ball);
         this.game.load.image('paddle', this.configuration.assets.paddle);
         this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
-        this.game.load.physics("map_physics", this.configuration.assets.map_physics);
-        this.game.load.image('menuButton','assets/menuButton.png');
-        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
-        this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
-=======
-    fx: null,
-    music: null,
-    
-    preload: function () {
-        // image
-        this.game.load.image('ball', this.configuration.assets.sprite_ball);
-        this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
-        this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
         
-        // physics
-        this.game.load.physics("map_physics", this.configuration.assets.physics_map);
-        
-        // audio
-        this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
-        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
->>>>>>> cd7a0748367fa46e1240e88d66ca1627534dadbb
+
     },
 
     create: function () {
