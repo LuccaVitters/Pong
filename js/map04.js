@@ -1,4 +1,4 @@
-function map03(game) {    
+function map04(game) {    
     this.configuration = {
         ball: {
             x: 380, 
@@ -23,10 +23,10 @@ function map03(game) {
         assets: {
             sprite_ball: 'assets/ball.png',
             sprite_paddle: 'assets/paddle.png',
-            sprite_map: "assets/map03.png",
-            physics_map: "assets/map03.json"
+            sprite_map: "assets/map04.png",
+            physics_map: "assets/map04.json"
         }
     }
 }
 
-map03.prototype = gameProtoype;
+map04.prototype = gameProtoype;
