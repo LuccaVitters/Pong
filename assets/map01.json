@@ -5,27 +5,27 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   819, 24  ,  1281, 0  ,  1281, 486  ]
+            "shape": [   2, 2  ,  482, 25  ,  0, 501  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   0, 1  ,  480, 26  ,  -2, 505  ]
+            "shape": [   819, 24  ,  1281, -1  ,  1281, 486  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   480, 26  ,  819, 24  ,  649, 58  ]
+            "shape": [   482, 25  ,  819, 24  ,  652, 60  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   1281, 0  ,  819, 24  ,  480, 26  ,  0, 1  ]
+            "shape": [   1281, -1  ,  819, 24  ,  482, 25  ,  2, 2  ]
         } ,
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   309, 720  ,  649, 494  ,  988, 720  ]
+            "shape": [   986, 721  ,  305, 721  ,  648, 492  ]
         }
     ],
     
