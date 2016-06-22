@@ -110,7 +110,7 @@ var gameProtoype = {
             player.score.bmpText.text++;
             player.score.fixPosition();
 
-            if (player.score.bmpText.text == 1)  {
+            if (player.score.bmpText.text == 5)  {
                 
                 var looserName;
                 if (player == this.player1) {
@@ -303,6 +303,6 @@ var gameProtoype = {
         
             this.mapTrack = this.game.sound.play('mapTrack');
             this.mapTrack.loop = true;
-            this.spawnBall();
+            //this.spawnBall();
     }
 }
