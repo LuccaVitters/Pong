@@ -4,13 +4,13 @@ function map01(game) {
             x: 380, 
             y: 150, 
             rotation: 45, 
-            speed: 200
+            speed: 600
         },
         player1: {
             x: 230, 
             y: 500, 
             rotation: -45,
-            speed: 200, 
+            speed: 400, 
             up: Phaser.KeyCode.W,
             down: Phaser.KeyCode.S
         },
@@ -18,7 +18,7 @@ function map01(game) {
             x: 1050, 
             y: 500, 
             rotation: 45, 
-            speed: 200, 
+            speed: 400, 
             up: Phaser.KeyCode.UP,
             down: Phaser.KeyCode.DOWN
         },
