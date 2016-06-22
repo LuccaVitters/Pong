@@ -79,9 +79,6 @@ var gameProtoype = {
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
         this.scored = this.game.add.audio('scored');
-        
-        console.log("create");
-        
     },
     
     hitMap: function() {
@@ -154,17 +151,25 @@ var gameProtoype = {
             "ball");
         
         this.game.physics.p2.enable(sprite);
-        sprite.body.rotation = configuration.rotation / 180 * Math.PI;
-        sprite.body.moveForward(configuration.speed);
         sprite.body.setCircle(sprite.width / 2);
         
         var collisionGroup = this.game.physics.p2.createCollisionGroup();
         sprite.body.setCollisionGroup(collisionGroup);
         
+        sprite.visible = false;
+        
         return {
+            enabled: false,
             sprite: sprite,
             collisionGroup: collisionGroup
         };
+    },
+    
+    spawnBall: function () {
+        this.ball.enabled = true;
+        this.ball.sprite.visible = true;
+        this.ball.sprite.body.rotation = this.configuration.ball.rotation / 180 * Math.PI;
+        this.ball.sprite.body.moveForward(this.configuration.ball.speed);
     },
     
     createPlayer: function (configuration, goalKey, scoreX, scoreY) {
@@ -232,7 +237,9 @@ var gameProtoype = {
     update: function () {
         this.updatePlayer(this.player1);
         this.updatePlayer(this.player2);
-        this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
+        if (this.ball.enabled) {
+            this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
+        }
     },
         
     updatePlayer: function (player) {
@@ -309,6 +316,6 @@ var gameProtoype = {
     soundIsDecoded: function () {
         this.mapTrack = this.game.sound.play('mapTrack');
         this.mapTrack.loop = true;
-        //this.spawnBall();
+        this.spawnBall();
     }
 }
