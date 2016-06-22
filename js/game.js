@@ -17,12 +17,12 @@ var gameProtoype = {
         this.game.load.audio('track1', 'soundAssets/ZweihaenderVideoGames.mp3');
         
         //physics
-        this.game.load.physics("map_physics", this.configuration.assets.map_physics);
+        this.game.load.physics("map_physics", this.configuration.assets.physics_map);
         
         //images
-        this.game.load.image('ball', this.configuration.assets.ball);
-        this.game.load.image('paddle', this.configuration.assets.paddle);
-        this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
+        this.game.load.image('ball', this.configuration.assets.sprite_ball);
+        this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
+        this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
         
 
