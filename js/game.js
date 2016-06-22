@@ -9,6 +9,7 @@ var gameProtoype = {
     scored: null,
     mapTrack: null,
     scoreTextSize: 64,
+    scoreMax: 7,
     onscreenText1: null,
     onscreenText2: null,
     gameOver: false,
@@ -110,7 +111,7 @@ var gameProtoype = {
             player.score.bmpText.text++;
             player.score.fixPosition();
 
-            if (player.score.bmpText.text == 1)  {
+            if (player.score.bmpText.text == this.scoreMax)  {
                 
                 var looserName;
                 if (player == this.player1) {
