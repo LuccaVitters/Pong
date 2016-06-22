@@ -6,6 +6,7 @@ var gameProtoype = {
     player2: null,
     ballHitWorld: null,
     ballHitPaddle: null,
+    scored: null,
     mapTrack: null,
     scoreTextSize: 64,
     
@@ -14,6 +15,7 @@ var gameProtoype = {
         //audio
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
+        this.game.load.audio('scored', 'soundAssets/scored.ogg');
         this.game.load.audio('mapTrack', this.configuration.assets.track);
         
         //physics
@@ -69,6 +71,7 @@ var gameProtoype = {
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
+        this.scored = this.game.add.audio('scored');
         
     },
     
@@ -85,10 +88,12 @@ var gameProtoype = {
     },
     
     hitGoal1: function() {
+        this.scored.play();
         this.player2.scoreText.text++;
     },
     
     hitGoal2: function() {
+        this.scored.play();
         this.player1.scoreText.text++;
     },
     
