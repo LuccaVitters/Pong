@@ -29,11 +29,8 @@ function map02(game) {
             sprite_paddle: 'assets/paddle.png',
             sprite_map: "assets/map02.png",
             physics_map: "assets/map02.json",
-<<<<<<< HEAD
-            track: 'soundAssets/CarpenterBrutSexKillerOnTheLoose.mp3'
-=======
             track: 'soundAssets/map02Track.mp3'
->>>>>>> df03654b828de8eab1cb401965ac2a4ed5cbf1a7
+
         }
     }
 }
