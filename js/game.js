@@ -6,7 +6,7 @@ var gameProtoype = {
     player2: null,
     ballHitWorld: null,
     ballHitPaddle: null,
-    track1: null,
+    mapTrack: null,
     scoreTextSize: 64,
     
     preload: function () {
@@ -14,6 +14,7 @@ var gameProtoype = {
         //audio
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
+        this.game.load.audio('mapTrack', this.configuration.assets.track);
         
         //physics
         this.game.load.physics("map_physics", this.configuration.assets.physics_map);
@@ -30,6 +31,8 @@ var gameProtoype = {
 
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
+        
+        this.mapTrack = this.game.sound.play('mapTrack');
         
         // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
@@ -223,6 +226,7 @@ var gameProtoype = {
     },
     
     onMenuButtonClick: function () {
+        this.mapTrack.stop();
         this.game.state.start("menu");
     },
     

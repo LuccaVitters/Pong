@@ -34,26 +34,33 @@ menu.prototype = {
     },
 
     actionOnClickMap01: function () {
-
+        
+        this.menuTrack.stop();
         this.game.state.start('map01',false,false);
+        
 
     },
 
     actionOnClickMap02:  function () {
-
+        
+        this.menuTrack.stop();
         this.game.state.start('map02',false,false);
-
+        
+        
     },
     
     actionOnClickMap03: function () {
         
+        this.menuTrack.stop();
         this.game.state.start('map03',false,false);
+        
     },
     
     actionOnClickMap04: function () {
-
+        
+        this.menuTrack.stop();
         this.game.state.start('map04',false,false);
-
+        
     }
 }
 

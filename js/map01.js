@@ -26,7 +26,8 @@ function map01(game) {
             sprite_ball: 'assets/ball.png',
             sprite_paddle: 'assets/paddle.png',
             sprite_map: "assets/map01.png",
-            physics_map: "assets/map01.json"
+            physics_map: "assets/map01.json",
+            track: "soundAssets/CarpenterBrutRunSallyRun.mp3"
         }
     }
 }
