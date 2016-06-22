@@ -74,7 +74,7 @@ var gameProtoype = {
         this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
         this.onscreenText1 = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
-        this.onscreenText2 = this.game.add.bitmapText(350, 300, 'carrier_command_black','',34);
+        this.onscreenText2 = this.game.add.bitmapText(340, 295, 'carrier_command_black','',34);
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
