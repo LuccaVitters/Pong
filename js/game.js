@@ -9,6 +9,8 @@ var gameProtoype = {
     scored: null,
     mapTrack: null,
     scoreTextSize: 64,
+    onscreenText: null,
+    gameOver: false,
     
     preload: function () {
         
@@ -26,9 +28,12 @@ var gameProtoype = {
         this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
         this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
+        this.game.load.image('gameOver','assets/gameOver.png');
+        
         
         // fonts
         this.game.load.bitmapFont('carrier_command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
+        this.game.load.bitmapFont('carrier_command_black', 'assets/fonts/carrier_command_black.png', 'assets/fonts/carrier_command_black.xml');
     },
 
     create: function () {
@@ -68,6 +73,7 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
+        this.onscreenText = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
@@ -96,10 +102,19 @@ var gameProtoype = {
     },
     
     hitGoal: function(player) {
-        this.scored.play();
-        player.score.bmpText.text++;
-        player.score.fixPosition();
+        if (!this.gameOver) {
+            this.scored.play();
+            player.score.bmpText.text++;
+            player.score.fixPosition();
+
+            if (player.score.bmpText.text == 1)  {
+                console.log("Game Over");
+                this.onscreenText.text = "Game Over";
+                this.gameOver = true;
+            }
+        }
     },
+    
     
     createMap: function () {
         var sprite = this.game.add.sprite(
