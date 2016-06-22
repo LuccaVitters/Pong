@@ -46,8 +46,8 @@ var gameProtoype = {
 
         this.map = this.createMap();
         this.ball = this.createBall(this.configuration.ball);
-        this.player1 = this.createPlayer(this.configuration.player1, "goal1", 50, 200);
-        this.player2 = this.createPlayer(this.configuration.player2, "goal2", this.game.width - this.scoreTextSize - 50, 200);
+        this.player1 = this.createPlayer(this.configuration.player1, "goal1", 100, 200);
+        this.player2 = this.createPlayer(this.configuration.player2, "goal2", this.game.width - 100, 200);
         
         this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap, this);
         this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1, this);
@@ -84,11 +84,16 @@ var gameProtoype = {
     },
     
     hitGoal1: function() {
-        this.player2.scoreText.text++;
+        this.hitGoal(this.player2);
     },
     
     hitGoal2: function() {
-        this.player1.scoreText.text++;
+        this.hitGoal(this.player1);
+    },
+    
+    hitGoal: function(player) {
+        player.score.bmpText.text++;
+        player.score.fixPosition();
     },
     
     createMap: function () {
@@ -140,8 +145,18 @@ var gameProtoype = {
                 forwardKey: this.game.input.keyboard.addKey(configuration.up),
                 backwardKey: this.game.input.keyboard.addKey(configuration.down)
             },
-            scoreText: this.game.add.bitmapText(scoreX, scoreY, 'carrier_command', '0', this.scoreTextSize)
+            score: {
+                bmpText: this.game.add.bitmapText(0, 0, 'carrier_command', '0', this.scoreTextSize),
+                x: scoreX,
+                y: scoreY,
+                fixPosition: function() {
+                    // re-center text (for multiple characters) 
+                    this.bmpText.x = this.x - this.bmpText.width / 2;
+                    this.bmpText.y = this.y - this.bmpText.height / 2;
+                }
+            }
         };
+        player.score.fixPosition();
         return player;
     },
     
