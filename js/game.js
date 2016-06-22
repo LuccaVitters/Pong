@@ -192,8 +192,8 @@ var gameProtoype = {
                 configuration.rotation),
             goal: this.createGoal(goalKey),
             controls: {
-                forwardKey: this.game.input.keyboard.addKey(configuration.up),
-                backwardKey: this.game.input.keyboard.addKey(configuration.down)
+                upKey: this.game.input.keyboard.addKey(configuration.up),
+                downKey: this.game.input.keyboard.addKey(configuration.down)
             },
             score: {
                 bmpText: this.game.add.bitmapText(0, 0, 'carrier_command', '0', this.scoreTextSize),
@@ -262,10 +262,10 @@ var gameProtoype = {
         
         body.setZeroVelocity();
         //if (distance < config.radius) {
-            if (player.controls.forwardKey.isDown) {
+            if (player.controls.upKey.isDown) {
                 body.moveForward(config.speed);
             }
-            if (player.controls.backwardKey.isDown) {
+            if (player.controls.downKey.isDown) {
                 body.moveBackward(config.speed);
             }
         //}
