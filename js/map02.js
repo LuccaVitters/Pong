@@ -11,6 +11,7 @@ function map02(game) {
             y: 625, 
             rotation: 90, 
             speed: 400, 
+            radius: 200, 
             up: Phaser.KeyCode.D,
             down: Phaser.KeyCode.A
         },
@@ -19,6 +20,7 @@ function map02(game) {
             y: 625, 
             rotation: 90, 
             speed: 400, 
+            radius: 200, 
             up: Phaser.KeyCode.RIGHT,
             down: Phaser.KeyCode.LEFT
         },
@@ -27,7 +29,11 @@ function map02(game) {
             sprite_paddle: 'assets/paddle.png',
             sprite_map: "assets/map02.png",
             physics_map: "assets/map02.json",
+<<<<<<< HEAD
             track: 'soundAssets/CarpenterBrutSexKillerOnTheLoose.mp3'
+=======
+            track: 'soundAssets/map02Track.mp3'
+>>>>>>> df03654b828de8eab1cb401965ac2a4ed5cbf1a7
         }
     }
 }
