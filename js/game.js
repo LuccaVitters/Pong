@@ -233,7 +233,9 @@ var gameProtoype = {
         // apply to bodies
         this.ball.sprite.body.debug = this.debug;
         this.player1.paddle.sprite.body.debug = this.debug;
+        this.player1.goal.sprite.body.debug = this.debug;
         this.player2.paddle.sprite.body.debug = this.debug;
+        this.player2.goal.sprite.body.debug = this.debug;
         this.map.sprite.body.debug = this.debug;
 
         // apply to debug canvas
