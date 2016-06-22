@@ -27,7 +27,7 @@ function map04(game) {
             sprite_paddle: 'assets/paddle.png',
             sprite_map: "assets/map04.png",
             physics_map: "assets/map04.json",
-            track: "soundAssets/CarpenterBrutRunSallyRun.mp3"
+            track: "soundAssets/BonusTrack.mp3"
         }
     }
 }
