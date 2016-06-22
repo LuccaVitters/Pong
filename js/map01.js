@@ -11,6 +11,7 @@ function map01(game) {
             y: 500, 
             rotation: -45,
             speed: 400, 
+            radius: 200, 
             up: Phaser.KeyCode.W,
             down: Phaser.KeyCode.S
         },
@@ -19,6 +20,7 @@ function map01(game) {
             y: 500, 
             rotation: 45, 
             speed: 400, 
+            radius: 200,
             up: Phaser.KeyCode.UP,
             down: Phaser.KeyCode.DOWN
         },
