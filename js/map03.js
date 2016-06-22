@@ -21,10 +21,10 @@ function map03(game) {
             down: Phaser.KeyCode.DOWN
         },
         assets: {
-            ball: 'assets/ball.png',
-            paddle: 'assets/paddle.png',
-            map_sprite: "assets/map03.png",
-            map_physics: "assets/map03.json"
+            sprite_ball: 'assets/ball.png',
+            sprite_paddle: 'assets/paddle.png',
+            sprite_map: "assets/map03.png",
+            physics_map: "assets/map03.json"
         }
     }
 }

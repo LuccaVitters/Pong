@@ -5,6 +5,7 @@ var gameProtoype = {
     ball: null,
     player1: null,
     player2: null,
+<<<<<<< HEAD
     ballHitWorld: null,
     ballHitPaddle: null,
     track1: null,
@@ -18,12 +19,30 @@ var gameProtoype = {
         this.game.load.image('menuButton','assets/menuButton.png');
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
+=======
+    fx: null,
+    music: null,
+    
+    preload: function () {
+        // image
+        this.game.load.image('ball', this.configuration.assets.sprite_ball);
+        this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
+        this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
+        this.game.load.image('menuButton','assets/menuButton.png');
+        
+        // physics
+        this.game.load.physics("map_physics", this.configuration.assets.physics_map);
+        
+        // audio
+        this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
+        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
+>>>>>>> cd7a0748367fa46e1240e88d66ca1627534dadbb
     },
 
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         
-        //  turn on impact events for the world, without this we get no collision callbacks
+        // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
         
         this.track1 = this.game.sound.play('track1');
@@ -53,7 +72,7 @@ var gameProtoype = {
         this.debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
         this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
-        this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+        this.menuButton = this.game.add.button(60, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
@@ -170,6 +189,7 @@ var gameProtoype = {
     update: function () {
         this.updatePlayer(this.player1);
         this.updatePlayer(this.player2);
+        this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
     },
         
     updatePlayer: function (player) {
@@ -183,14 +203,31 @@ var gameProtoype = {
         }
     },
 
+    getVelocity: function (sprite) {
+        var vx, vy;
+        
+        x = sprite.body.velocity.x;
+        y = sprite.body.velocity.y;
+        
+        return Math.sqrt(x * x + y * y);
+    },
+    
+    setVelocity: function (sprite, velocity) {
+        var x, y, angle;
+
+        x = sprite.body.velocity.x;
+        y = sprite.body.velocity.y;
+
+        angle = Math.atan2(y, x);
+            
+        sprite.body.velocity.x = Math.cos(angle) * velocity;
+        sprite.body.velocity.y = Math.sin(angle) * velocity;
+    },
+    
     render: function () {
         if (this.debug) {
-            var ballSpeed = Math.sqrt(
-                Math.pow(this.ball.sprite.body.velocity.x, 2) + 
-                Math.pow(this.ball.sprite.body.velocity.y, 2));
-
             this.game.debug.start(20, 20, 'white');
-            this.game.debug.line("Ball speed: " + ballSpeed);
+            this.game.debug.line("Ball speed: " + this.getVelocity(this.ball.sprite));
             this.game.debug.line("Ball angular speed: " + this.ball.sprite.body.angularVelocity);
             this.game.debug.line("Mouse position x: " + this.game.input.mousePointer.x);
             this.game.debug.line("Mouse position y: " + this.game.input.mousePointer.y);
@@ -198,7 +235,7 @@ var gameProtoype = {
         }
     },
     
-    actionOnClickMenuButton: function () {
+    onMenuButtonClick: function () {
         this.game.state.start("menu");
     },
     
