@@ -148,11 +148,10 @@ var gameProtoype = {
     },
     
     createBall: function (configuration) {
-        
-            var sprite = this.game.add.sprite(
-                configuration.x, 
-                configuration.y, 
-                "ball");
+        var sprite = this.game.add.sprite(
+            configuration.x, 
+            configuration.y, 
+            "ball");
         
         this.game.physics.p2.enable(sprite);
         sprite.body.rotation = configuration.rotation / 180 * Math.PI;
@@ -308,9 +307,8 @@ var gameProtoype = {
     },
     
     soundIsDecoded: function () {
-        
-            this.mapTrack = this.game.sound.play('mapTrack');
-            this.mapTrack.loop = true;
-            this.spawnBall();
+        this.mapTrack = this.game.sound.play('mapTrack');
+        this.mapTrack.loop = true;
+        //this.spawnBall();
     }
 }
