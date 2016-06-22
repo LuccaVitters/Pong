@@ -84,23 +84,33 @@ var gameProtoype = {
     },
     
     hitMap: function() {
+        if (!this.gameOver) {
         this.ballHitWorld.play();
+        }
     },
     
     hitPaddle1: function() {
+        if (!this.gameOver) {
         this.ballHitPaddle.play();
+        }
     },
     
     hitPaddle2: function() {
+        if (!this.gameOver) {
         this.ballHitPaddle.play();
+        }
     },
     
     hitGoal1: function() {
+        if (!this.gameOver) {
         this.hitGoal(this.player2);
+        }
     },
     
     hitGoal2: function() {
+        if (!this.gameOver) {
         this.hitGoal(this.player1);
+            }
     },
     
     hitGoal: function(player) {
