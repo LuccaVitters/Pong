@@ -9,14 +9,16 @@ function map02(game) {
         player1: {
             x: 380, 
             y: 625, 
-            rotation: 90,
+            rotation: 90, 
+            speed: 200, 
             up: Phaser.KeyCode.D,
             down: Phaser.KeyCode.A
         },
         player2: {
             x: 900, 
             y: 625, 
-            rotation: 90,
+            rotation: 90, 
+            speed: 200, 
             up: Phaser.KeyCode.RIGHT,
             down: Phaser.KeyCode.LEFT
         },

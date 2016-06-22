@@ -1,5 +1,4 @@
 var gameProtoype = {
-    paddleSpeed: 200,
     debug: false,
     map: null,
     ball: null,
@@ -176,19 +175,19 @@ var gameProtoype = {
     },
     
     update: function () {
-        this.updatePlayer(this.player1);
-        this.updatePlayer(this.player2);
+        this.updatePlayer(this.player1, this.configuration.player1.speed);
+        this.updatePlayer(this.player2, this.configuration.player2.speed);
         this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
     },
         
-    updatePlayer: function (player) {
+    updatePlayer: function (player, paddleVelocity) {
         player.paddle.sprite.body.setZeroVelocity();
         
         if (player.controls.forwardKey.isDown) {
-            player.paddle.sprite.body.moveForward(this.paddleSpeed);
+            player.paddle.sprite.body.moveForward(paddleVelocity);
         }
         if (player.controls.backwardKey.isDown) {
-            player.paddle.sprite.body.moveBackward(this.paddleSpeed);
+            player.paddle.sprite.body.moveBackward(paddleVelocity);
         }
     },
 
