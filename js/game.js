@@ -292,5 +292,6 @@ var gameProtoype = {
         
             this.mapTrack = this.game.sound.play('mapTrack');
             this.mapTrack.loop = true;
+            this.spawnBall();
     }
 }
