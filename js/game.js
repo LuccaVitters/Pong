@@ -172,7 +172,7 @@ var gameProtoype = {
     spawnBall: function () {
         this.ball.enabled = true;
         this.ball.sprite.visible = true;
-        this.ball.sprite.body.rotation = this.configuration.ball.rotation / 180 * Math.PI;
+        this.ball.sprite.body.rotation = Math.random() * 2 * Math.PI;
         this.ball.sprite.body.moveForward(this.configuration.ball.speed);
         this.ball.sprite.body.x = this.configuration.ball.x;
         this.ball.sprite.body.y = this.configuration.ball.y;

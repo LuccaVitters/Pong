@@ -3,7 +3,6 @@ function map04(game) {
         ball: {
             x: 634, 
             y: 337, 
-            rotation: 45, 
             speed: 1000
         },
         player1: {
