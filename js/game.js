@@ -15,7 +15,6 @@ var gameProtoype = {
     gameOver: false,
     
     preload: function () {
-        
         //audio
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
@@ -52,7 +51,7 @@ var gameProtoype = {
         this.game.physics.p2.applyDamping = false;
         var ballMaterial = this.game.physics.p2.createMaterial();
         this.game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
-
+        
         this.map = this.createMap();
         this.ball = this.createBall(this.configuration.ball);
         this.player1 = this.createPlayer(this.configuration.player1, "goal1", 100, 200);
@@ -74,9 +73,11 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
+        // bitmap text 'Game over'
         this.onscreenText1 = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
         this.onscreenText2 = this.game.add.bitmapText(340, 295, 'carrier_command_black','',34);
         
+        // audio
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
         this.scored = this.game.add.audio('scored');
@@ -127,7 +128,6 @@ var gameProtoype = {
             }
         }
     },
-    
     
     createMap: function () {
         var sprite = this.game.add.sprite(
