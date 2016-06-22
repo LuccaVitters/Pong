@@ -79,11 +79,11 @@ var gameProtoype = {
     },
     
     hitGoal1: function() {
-        
+        this.player2.score++;
     },
     
     hitGoal2: function() {
-        
+        this.player1.score++;
     },
     
     createMap: function () {
