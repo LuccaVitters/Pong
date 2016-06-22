@@ -58,7 +58,7 @@ var gameProtoype = {
         this.debugKey = this.game.input.keyboard.addKey(Phaser.KeyCode.TAB);
         this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
-        this.menuButton = this.game.add.button(60, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
+        this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
