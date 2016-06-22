@@ -27,7 +27,7 @@ function map03(game) {
             sprite_paddle: 'assets/paddle.png',
             sprite_map: "assets/map03.png",
             physics_map: "assets/map03.json",
-            track: "soundAssets/CarpenterBrutTurboKiller.mp3"
+            track: "soundAssets/map03Track.ogg"
         }
     }
 }
