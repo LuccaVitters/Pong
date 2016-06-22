@@ -7,6 +7,7 @@ var gameProtoype = {
     ballHitWorld: null,
     ballHitPaddle: null,
     track1: null,
+    scoreTextSize: 64,
     
     preload: function () {
         
@@ -42,8 +43,8 @@ var gameProtoype = {
 
         this.map = this.createMap();
         this.ball = this.createBall(this.configuration.ball);
-        this.player1 = this.createPlayer(this.configuration.player1, "goal1", 200, 100);
-        this.player2 = this.createPlayer(this.configuration.player2, "goal2", 500, 100);
+        this.player1 = this.createPlayer(this.configuration.player1, "goal1", 50, 200);
+        this.player2 = this.createPlayer(this.configuration.player2, "goal2", this.game.width - this.scoreTextSize - 50, 200);
         
         this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap, this);
         this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1, this);
@@ -80,13 +81,11 @@ var gameProtoype = {
     },
     
     hitGoal1: function() {
-        var score = this.player2.score++;
-        this.player2.scoreText.text = score;
+        this.player2.scoreText.text++;
     },
     
     hitGoal2: function() {
-        var score = this.player1.score++;
-        this.player1.scoreText.text = score;
+        this.player1.scoreText.text++;
     },
     
     createMap: function () {
@@ -138,8 +137,7 @@ var gameProtoype = {
                 forwardKey: this.game.input.keyboard.addKey(configuration.up),
                 backwardKey: this.game.input.keyboard.addKey(configuration.down)
             },
-            score: 0,
-            scoreText: game.add.bitmapText(200, 100, 'carrier_command', '', 64)
+            scoreText: this.game.add.bitmapText(scoreX, scoreY, 'carrier_command', '0', this.scoreTextSize)
         };
         return player;
     },
