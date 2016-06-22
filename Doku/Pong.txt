@@ -1,0 +1,21 @@
+Gruppenname: fsociety
+
+Mitglieder: Alexander Kopetsch, Lucca Vitters, Nils Henning, Ammon Slickers
+
+1. Worum geht es in dem Spiel?
+	- 2 Spieler-Pong auf verschiedenen minigolf-ähnlichen Kursen
+ 
+2. Warum dieses Spiel? (Motivation)
+	- inspiriert von "Plasma Pong" wollen wir das Pong-Prinzip etwas erweitern
+
+3. Wo spielt das Spiel? (Spiele-Welt)
+	- Spielfelder mit verschiedenen Themen
+
+4. Wie wird das Spiel gesteuert?
+	- zwei Spieler mit jeweils Pfeiltasten und WASD
+
+5. Was ist der Fokus?
+	- das korrekte Steuern des Spielballs über die verschiedenen Kurse
+	
+6. Was ist neu/anders?
+	- Pong auf Spielfeldern, die vom Standard-Spielfeld stark abweichen
