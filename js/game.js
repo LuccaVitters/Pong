@@ -5,19 +5,28 @@ var gameProtoype = {
     ball: null,
     player1: null,
     player2: null,
+    fx: null,
+    music: null,
     
     preload: function () {
-        this.game.load.image('ball', this.configuration.assets.ball);
-        this.game.load.image('paddle', this.configuration.assets.paddle);
-        this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
-        this.game.load.physics("map_physics", this.configuration.assets.map_physics);
+        // image
+        this.game.load.image('ball', this.configuration.assets.sprite_ball);
+        this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
+        this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
+        
+        // physics
+        this.game.load.physics("map_physics", this.configuration.assets.physics_map);
+        
+        // audio
+        this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
+        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
     },
 
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         
-        //  turn on impact events for the world, without this we get no collision callbacks
+        // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
         
         // needed for ball mechanics
@@ -31,11 +40,11 @@ var gameProtoype = {
         this.player1 = this.createPlayer(this.configuration.player1, "goal1");
         this.player2 = this.createPlayer(this.configuration.player2, "goal2");
         
-        this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap);
-        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1);
-        this.ball.sprite.body.collides(this.player1.goal.collisionGroup, this.hitGoal1);
-        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup, this.hitPaddle2);
-        this.ball.sprite.body.collides(this.player2.goal.collisionGroup, this.hitGoal2);
+        this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap, this);
+        this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1, this);
+        this.ball.sprite.body.collides(this.player1.goal.collisionGroup, this.hitGoal1, this);
+        this.ball.sprite.body.collides(this.player2.paddle.collisionGroup, this.hitPaddle2, this);
+        this.ball.sprite.body.collides(this.player2.goal.collisionGroup, this.hitGoal2, this);
         this.map.sprite.body.collides(this.ball.collisionGroup);
         this.player1.paddle.sprite.body.collides(this.ball.collisionGroup);
         this.player1.goal.sprite.body.collides(this.ball.collisionGroup);
@@ -46,10 +55,15 @@ var gameProtoype = {
         this.debugKey.onDown.add(this.onDebugKeyDown, this);
         
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
+        
+        this.music = this.game.add.audio('track1');
+        this.music.play('track1');
+        
+        this.fx = this.game.add.audio('ballHitWorld');
     },
     
     hitMap: function() {
-        
+        this.fx.play();
     },
     
     hitPaddle1: function() {
@@ -116,7 +130,8 @@ var gameProtoype = {
             controls: {
                 forwardKey: this.game.input.keyboard.addKey(configuration.up),
                 backwardKey: this.game.input.keyboard.addKey(configuration.down)
-            }
+            },
+            score: 0
         };
         return player;
     },
@@ -175,7 +190,7 @@ var gameProtoype = {
                 Math.pow(this.ball.sprite.body.velocity.y, 2));
 
             this.game.debug.start(20, 20, 'white');
-            this.game.debug.line("Ball speed: " + this.ballSpeed);
+            this.game.debug.line("Ball speed: " + ballSpeed);
             this.game.debug.line("Ball angular speed: " + this.ball.sprite.body.angularVelocity);
             this.game.debug.line("Mouse position x: " + this.game.input.mousePointer.x);
             this.game.debug.line("Mouse position y: " + this.game.input.mousePointer.y);
