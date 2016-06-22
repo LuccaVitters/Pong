@@ -88,15 +88,6 @@ var gameProtoype = {
     },
     
     hitGoal1: function() {
-<<<<<<< HEAD
-        this.scored.play();
-        this.player2.scoreText.text++;
-    },
-    
-    hitGoal2: function() {
-        this.scored.play();
-        this.player1.scoreText.text++;
-=======
         this.hitGoal(this.player2);
     },
     
@@ -105,9 +96,9 @@ var gameProtoype = {
     },
     
     hitGoal: function(player) {
+        this.scored.play();
         player.score.bmpText.text++;
         player.score.fixPosition();
->>>>>>> 47ddfaada57cbbacef5e97a4c24283be1ffaf586
     },
     
     createMap: function () {
