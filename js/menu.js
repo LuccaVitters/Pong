@@ -18,7 +18,7 @@ menu.prototype = {
     this.game.load.image('map01Button','assets/map01Button.png');
     this.game.load.image('map02Button','assets/map02Button.png');
     this.game.load.image('map03Button','assets/map03Button.png');
-    this.game.load.image('map04Button','assets/bonusButton.png');
+    this.game.load.image('map04Button','assets/map04Button.png');
     this.game.load.audio('startGame', 'soundAssets/startGame.mp3');
     },
 
