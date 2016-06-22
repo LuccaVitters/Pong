@@ -170,6 +170,7 @@ var gameProtoype = {
     update: function () {
         this.updatePlayer(this.player1);
         this.updatePlayer(this.player2);
+        this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
     },
         
     updatePlayer: function (player) {
@@ -190,6 +191,18 @@ var gameProtoype = {
         y = sprite.body.velocity.y;
         
         return Math.sqrt(x * x + y * y);
+    },
+    
+    setVelocity: function (sprite, velocity) {
+        var x, y, angle;
+
+        x = sprite.body.velocity.x;
+        y = sprite.body.velocity.y;
+
+        angle = Math.atan2(y, x);
+            
+        sprite.body.velocity.x = Math.cos(angle) * velocity;
+        sprite.body.velocity.y = Math.sin(angle) * velocity;
     },
     
     render: function () {
