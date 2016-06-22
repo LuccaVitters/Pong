@@ -164,11 +164,15 @@ var gameProtoype = {
     },
     
     createGoal: function (key) {
-        var sprite = this.game.add.sprite();
+        var sprite = this.game.add.sprite(
+            this.game.width / 2, 
+            this.game.height / 2, 
+            "map_sprite");
         this.game.physics.p2.enable(sprite);
         sprite.body.clearShapes();
         sprite.body.loadPolygon("map_physics", key);
         sprite.body.static = true;
+        sprite.visible = false;
         
         var collisionGroup = this.game.physics.p2.createCollisionGroup();
         sprite.body.setCollisionGroup(collisionGroup);
