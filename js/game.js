@@ -183,14 +183,19 @@ var gameProtoype = {
         }
     },
 
+    getVelocity: function (sprite) {
+        var vx, vy;
+        
+        x = sprite.body.velocity.x;
+        y = sprite.body.velocity.y;
+        
+        return Math.sqrt(x * x + y * y);
+    },
+    
     render: function () {
         if (this.debug) {
-            var ballSpeed = Math.sqrt(
-                Math.pow(this.ball.sprite.body.velocity.x, 2) + 
-                Math.pow(this.ball.sprite.body.velocity.y, 2));
-
             this.game.debug.start(20, 20, 'white');
-            this.game.debug.line("Ball speed: " + ballSpeed);
+            this.game.debug.line("Ball speed: " + this.getVelocity(this.ball.sprite));
             this.game.debug.line("Ball angular speed: " + this.ball.sprite.body.angularVelocity);
             this.game.debug.line("Mouse position x: " + this.game.input.mousePointer.x);
             this.game.debug.line("Mouse position y: " + this.game.input.mousePointer.y);
