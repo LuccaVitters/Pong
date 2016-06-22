@@ -9,6 +9,9 @@ var gameProtoype = {
     scored: null,
     mapTrack: null,
     scoreTextSize: 64,
+    onscreenText1: null,
+    onscreenText2: null,
+    gameOver: false,
     
     preload: function () {
         
@@ -16,7 +19,7 @@ var gameProtoype = {
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
         this.game.load.audio('scored', 'soundAssets/scored.ogg');
-        this.game.load.audio('mapTrack', this.configuration.assets.track);
+        this.game.load.audio('mapTrack', this.configuration.assets.track); 
         
         //physics
         this.game.load.physics("map_physics", this.configuration.assets.physics_map);
@@ -26,16 +29,18 @@ var gameProtoype = {
         this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
         this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
+        this.game.load.image('gameOver','assets/gameOver.png');
+        
         
         // fonts
         this.game.load.bitmapFont('carrier_command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
+        this.game.load.bitmapFont('carrier_command_black', 'assets/fonts/carrier_command_black.png', 'assets/fonts/carrier_command_black.xml');
     },
 
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         
-        this.mapTrack = this.game.sound.play('mapTrack');
-        this.mapTrack.loop = true;
+        this.game.sound.setDecodedCallback('mapTrack', this.soundIsDecoded, this);
         
         // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
@@ -68,10 +73,14 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
+        this.onscreenText1 = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
+        this.onscreenText2 = this.game.add.bitmapText(350, 300, 'carrier_command_black','',34);
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
         this.scored = this.game.add.audio('scored');
+        
+        console.log("create");
         
     },
     
@@ -96,10 +105,28 @@ var gameProtoype = {
     },
     
     hitGoal: function(player) {
-        this.scored.play();
-        player.score.bmpText.text++;
-        player.score.fixPosition();
+        if (!this.gameOver) {
+            this.scored.play();
+            player.score.bmpText.text++;
+            player.score.fixPosition();
+
+            if (player.score.bmpText.text == 1)  {
+                
+                var looserName;
+                if (player == this.player1) {
+                    looserName = "Player 2";
+                    }
+                else if(player == this.player2) {
+                    looserName = "Player 1"                    
+                }
+                console.log("Game Over");
+                this.onscreenText1.text = "Game Over";
+                this.onscreenText2.text = looserName + " sucks!";
+                this.gameOver = true;
+            }
+        }
     },
+    
     
     createMap: function () {
         var sprite = this.game.add.sprite(
@@ -277,5 +304,12 @@ var gameProtoype = {
 
         // apply to debug canvas
         this.game.debug.reset();
+    },
+    
+    soundIsDecoded: function () {
+        
+            this.mapTrack = this.game.sound.play('mapTrack');
+            this.mapTrack.loop = true;
+            this.spawnBall();
     }
 }
