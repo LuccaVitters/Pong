@@ -33,6 +33,7 @@ var gameProtoype = {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         
         this.mapTrack = this.game.sound.play('mapTrack');
+        this.mapTrack.loop = true;
         
         // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
@@ -111,10 +112,12 @@ var gameProtoype = {
     },
     
     createBall: function (configuration) {
-        var sprite = this.game.add.sprite(
-            configuration.x, 
-            configuration.y, 
-            "ball");
+        
+            var sprite = this.game.add.sprite(
+                configuration.x, 
+                configuration.y, 
+                "ball");
+        
         this.game.physics.p2.enable(sprite);
         sprite.body.rotation = configuration.rotation / 180 * Math.PI;
         sprite.body.moveForward(configuration.speed);

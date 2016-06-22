@@ -29,6 +29,7 @@ menu.prototype = {
         map04Button = this.game.add.button(900, 300, 'map04Button', this.actionOnClickMap04, this, 1, 0, 1);
        
         this.menuTrack = this.game.sound.play('menuTrack');
+        this.menuTrack.loop = true;
 
 
     },
