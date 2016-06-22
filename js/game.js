@@ -107,7 +107,7 @@ var gameProtoype = {
             player.score.bmpText.text++;
             player.score.fixPosition();
 
-            if (player.score.bmpText.text == 1)  {
+            if (player.score.bmpText.text == 5)  {
                 console.log("Game Over");
                 this.onscreenText.text = "Game Over";
                 this.gameOver = true;
