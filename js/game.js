@@ -23,7 +23,8 @@ var gameProtoype = {
         this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
         
-
+        // fonts
+        this.game.load.bitmapFont('carrier_command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
     },
 
     create: function () {
@@ -41,8 +42,8 @@ var gameProtoype = {
 
         this.map = this.createMap();
         this.ball = this.createBall(this.configuration.ball);
-        this.player1 = this.createPlayer(this.configuration.player1, "goal1");
-        this.player2 = this.createPlayer(this.configuration.player2, "goal2");
+        this.player1 = this.createPlayer(this.configuration.player1, "goal1", 200, 100);
+        this.player2 = this.createPlayer(this.configuration.player2, "goal2", 500, 100);
         
         this.ball.sprite.body.collides(this.map.collisionGroup, this.hitMap, this);
         this.ball.sprite.body.collides(this.player1.paddle.collisionGroup, this.hitPaddle1, this);
@@ -79,11 +80,13 @@ var gameProtoype = {
     },
     
     hitGoal1: function() {
-        this.player2.score++;
+        var score = this.player2.score++;
+        this.player2.scoreText.text = score;
     },
     
     hitGoal2: function() {
-        this.player1.score++;
+        var score = this.player1.score++;
+        this.player1.scoreText.text = score;
     },
     
     createMap: function () {
@@ -124,7 +127,7 @@ var gameProtoype = {
         };
     },
     
-    createPlayer: function (configuration, goalKey) {
+    createPlayer: function (configuration, goalKey, scoreX, scoreY) {
         var player = {
             paddle: this.createPaddle(
                 configuration.x, 
@@ -135,7 +138,8 @@ var gameProtoype = {
                 forwardKey: this.game.input.keyboard.addKey(configuration.up),
                 backwardKey: this.game.input.keyboard.addKey(configuration.down)
             },
-            score: 0
+            score: 0,
+            scoreText: game.add.bitmapText(200, 100, 'carrier_command', '', 64)
         };
         return player;
     },
