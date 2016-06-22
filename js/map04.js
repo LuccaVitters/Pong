@@ -6,7 +6,7 @@ function map04(game) {
             speed: 1000
         },
         player1: {
-            x: 295, 
+            x: 305, 
             y: 130, 
             rotation: 0, 
             speed: 400, 
@@ -15,7 +15,7 @@ function map04(game) {
             down: Phaser.KeyCode.S
         },
         player2: {
-            x: 975, 
+            x: 965, 
             y: 560, 
             rotation: 0, 
             speed: 400, 

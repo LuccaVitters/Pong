@@ -7,7 +7,7 @@ function map02(game) {
         },
         player1: {
             x: 380, 
-            y: 625, 
+            y: 620, 
             rotation: 90, 
             speed: 400, 
             radius: 200, 
@@ -16,7 +16,7 @@ function map02(game) {
         },
         player2: {
             x: 900, 
-            y: 625, 
+            y: 620, 
             rotation: 90, 
             speed: 400, 
             radius: 200, 
