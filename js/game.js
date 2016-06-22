@@ -1,26 +1,30 @@
 var gameProtoype = {
-    paddleSpeed: 200,
     debug: false,
     map: null,
     ball: null,
     player1: null,
     player2: null,
-    fx: null,
-    music: null,
+    ballHitWorld: null,
+    ballHitPaddle: null,
+    track1: null,
     
     preload: function () {
-        // image
+        
+        //audio
+        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
+        this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
+        this.game.load.audio('track1', 'soundAssets/ZweihaenderVideoGames.mp3');
+        
+        //physics
+        this.game.load.physics("map_physics", this.configuration.assets.physics_map);
+        
+        //images
         this.game.load.image('ball', this.configuration.assets.sprite_ball);
         this.game.load.image('paddle', this.configuration.assets.sprite_paddle);
         this.game.load.image("map_sprite", this.configuration.assets.sprite_map);
         this.game.load.image('menuButton','assets/menuButton.png');
         
-        // physics
-        this.game.load.physics("map_physics", this.configuration.assets.physics_map);
-        
-        // audio
-        this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
-        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
+
     },
 
     create: function () {
@@ -28,6 +32,8 @@ var gameProtoype = {
         
         // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
+        
+        this.track1 = this.game.sound.play('track1');
         
         // needed for ball mechanics
         this.game.physics.p2.restitution = 1;
@@ -56,22 +62,23 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
-        this.music = this.game.add.audio('track1');
-        this.music.play('track1');
         
-        this.fx = this.game.add.audio('ballHitWorld');
+        this.ballHitWorld = this.game.add.audio('ballHitWorld');
+        this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
+        
     },
     
     hitMap: function() {
-        this.fx.play();
+        this.ballHitWorld.play();
     },
     
     hitPaddle1: function() {
-        
+        console.log(this);
+        this.ballHitPaddle.play();
     },
     
     hitPaddle2: function() {
-        
+        this.ballHitPaddle.play();
     },
     
     hitGoal1: function() {
@@ -168,19 +175,19 @@ var gameProtoype = {
     },
     
     update: function () {
-        this.updatePlayer(this.player1);
-        this.updatePlayer(this.player2);
+        this.updatePlayer(this.player1, this.configuration.player1.speed);
+        this.updatePlayer(this.player2, this.configuration.player2.speed);
         this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
     },
         
-    updatePlayer: function (player) {
+    updatePlayer: function (player, paddleVelocity) {
         player.paddle.sprite.body.setZeroVelocity();
         
         if (player.controls.forwardKey.isDown) {
-            player.paddle.sprite.body.moveForward(this.paddleSpeed);
+            player.paddle.sprite.body.moveForward(paddleVelocity);
         }
         if (player.controls.backwardKey.isDown) {
-            player.paddle.sprite.body.moveBackward(this.paddleSpeed);
+            player.paddle.sprite.body.moveBackward(paddleVelocity);
         }
     },
 
