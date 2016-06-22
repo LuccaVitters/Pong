@@ -2,6 +2,7 @@ var menu = function(game){
     
     var map01Button;
     var map02Button;
+    var map03Button;
     var map04Button;
     var menuTrack;
    
