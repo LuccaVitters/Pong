@@ -170,6 +170,7 @@ var gameProtoype = {
     
     createPlayer: function (configuration, goalKey, scoreX, scoreY) {
         var player = {
+            configuration: configuration,
             paddle: this.createPaddle(
                 configuration.x, 
                 configuration.y, 
