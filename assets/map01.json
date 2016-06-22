@@ -34,12 +34,7 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   1, 443  ,  37, 423  ,  228, 720  ,  0, 720  ]
-        } ,
-        {
-            "density": 2, "friction": 0, "bounce": 0, 
-            "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   228, 720  ,  37, 423  ,  309, 721  ]
+            "shape": [   -2, 507  ,  116, 385  ,  392, 664  ,  306, 722  ,  2, 720  ]
         }
     ],
     
@@ -48,7 +43,7 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   950, 720  ,  1256, 393  ,  1280, 383  ,  1280, 720  ]
+            "shape": [   986, 719  ,  893, 659  ,  1172, 373  ,  1281, 485  ,  1282, 720  ]
         }
     ]
 }

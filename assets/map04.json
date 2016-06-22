@@ -54,7 +54,7 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   240, 16  ,  241, 283  ,  201, 282  ,  200, 16  ]
+            "shape": [   223, 297  ,  225, 22  ,  299, 21  ,  299, 300  ]
         }
     ],
     
@@ -63,7 +63,7 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   1071, 435  ,  1072, 702  ,  1032, 701  ,  1031, 435  ]
+            "shape": [   972, 711  ,  974, 436  ,  1048, 435  ,  1048, 714  ]
         }
     ]
 }

@@ -232,20 +232,22 @@
             "shape": [   638, 381  ,  642, 381  ,  642, 473  ,  638, 473  ]
         }
     ],
+    
 	"goal1": [
         
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   477, 643  ,  642, 440  ,  640, 499  ,  511, 666  ]
+            "shape": [   443, 625  ,  639, 383  ,  640, 477  ,  495, 659  ]
         }
     ],
-	"goal2": [
+    
+    "goal2": [
         
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   641, 489  ,  638, 443  ,  809, 646  ,  783, 665  ]
+            "shape": [   639, 477  ,  638, 383  ,  843, 628  ,  794, 670  ]
         }
     ]
 }

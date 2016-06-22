@@ -4,7 +4,7 @@ function map01(game) {
             x: 633, 
             y: 190, 
             rotation: 45, 
-            speed: 600
+            speed: 800
         },
         player1: {
             x: 230, 

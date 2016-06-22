@@ -73,15 +73,16 @@
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   199, 718  ,  199, 678  ,  621, 677  ,  621, 720  ]
+            "shape": [   612, 623  ,  612, 693  ,  192, 692  ,  192, 622  ]
         }
     ],
-	"goal2": [
+    
+    "goal2": [
         
         {
             "density": 2, "friction": 0, "bounce": 0, 
             "filter": { "categoryBits": 1, "maskBits": 65535 },
-            "shape": [   665, 718  ,  665, 678  ,  1087, 677  ,  1087, 720  ]
+            "shape": [   1085, 624  ,  1085, 694  ,  665, 693  ,  665, 623  ]
         }
     ]
 }
