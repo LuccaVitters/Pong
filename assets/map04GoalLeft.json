@@ -1,0 +1,11 @@
+{ 
+    
+    "map04": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   240, 16  ,  241, 283  ,  201, 282  ,  200, 16  ]
+        }
+    ]
+}
