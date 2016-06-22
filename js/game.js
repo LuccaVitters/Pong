@@ -19,7 +19,7 @@ var gameProtoype = {
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
         this.game.load.audio('scored', 'soundAssets/scored.ogg');
-        this.game.load.audio('mapTrack', this.configuration.assets.track);
+        this.game.load.audio('mapTrack', this.configuration.assets.track); 
         
         //physics
         this.game.load.physics("map_physics", this.configuration.assets.physics_map);
@@ -40,8 +40,7 @@ var gameProtoype = {
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         
-        this.mapTrack = this.game.sound.play('mapTrack');
-        this.mapTrack.loop = true;
+        this.game.sound.setDecodedCallback('mapTrack', this.soundIsDecoded, this);
         
         // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
@@ -80,6 +79,8 @@ var gameProtoype = {
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
         this.scored = this.game.add.audio('scored');
+        
+        console.log("create");
         
     },
     
@@ -296,5 +297,12 @@ var gameProtoype = {
 
         // apply to debug canvas
         this.game.debug.reset();
+    },
+    
+    soundIsDecoded: function () {
+        
+            this.mapTrack = this.game.sound.play('mapTrack');
+            this.mapTrack.loop = true;
+            this.spawnBall();
     }
 }
