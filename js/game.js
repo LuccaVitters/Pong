@@ -5,17 +5,19 @@ var gameProtoype = {
     ball: null,
     player1: null,
     player2: null,
-    fx: null,
-    music: null,
+    ballHitWorld: null,
+    ballHitPaddle: null,
+    track1: null,
     
     preload: function () {
+        this.game.load.audio('track1', 'soundAssets/ZweihaenderVideoGames.mp3');
         this.game.load.image('ball', this.configuration.assets.ball);
         this.game.load.image('paddle', this.configuration.assets.paddle);
         this.game.load.image("map_sprite", this.configuration.assets.map_sprite);
         this.game.load.physics("map_physics", this.configuration.assets.map_physics);
         this.game.load.image('menuButton','assets/menuButton.png');
-        this.game.load.audio('track1', 'soundAssets/TrackZweihaenderInferno.mp3');
-        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld2.ogg');
+        this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
+        this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
     },
 
     create: function () {
@@ -23,6 +25,8 @@ var gameProtoype = {
         
         //  turn on impact events for the world, without this we get no collision callbacks
         this.game.physics.p2.setImpactEvents(true);
+        
+        this.track1 = this.game.sound.play('track1');
         
         // needed for ball mechanics
         this.game.physics.p2.restitution = 1;
@@ -51,22 +55,23 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(60, 30, 'menuButton', this.actionOnClickMenuButton, this, 0.5, 1, 1);
         
-        this.music = this.game.add.audio('track1');
-        this.music.play('track1');
         
-        this.fx = this.game.add.audio('ballHitWorld');
+        this.ballHitWorld = this.game.add.audio('ballHitWorld');
+        this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
+        
     },
     
     hitMap: function() {
-        this.fx.play();
+        this.ballHitWorld.play();
     },
     
     hitPaddle1: function() {
-        
+        console.log(this);
+        this.ballHitPaddle.play();
     },
     
     hitPaddle2: function() {
-        
+        this.ballHitPaddle.play();
     },
     
     hitGoal1: function() {
