@@ -9,7 +9,8 @@ var gameProtoype = {
     scored: null,
     mapTrack: null,
     scoreTextSize: 64,
-    onscreenText: null,
+    onscreenText1: null,
+    onscreenText2: null,
     gameOver: false,
     
     preload: function () {
@@ -73,7 +74,8 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
-        this.onscreenText = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
+        this.onscreenText1 = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
+        this.onscreenText2 = this.game.add.bitmapText(350, 300, 'carrier_command_black','',34);
         
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
@@ -107,9 +109,18 @@ var gameProtoype = {
             player.score.bmpText.text++;
             player.score.fixPosition();
 
-            if (player.score.bmpText.text == 5)  {
+            if (player.score.bmpText.text == 1)  {
+                
+                var looserName;
+                if (player == this.player1) {
+                    looserName = "Player 2";
+                    }
+                else if(player == this.player2) {
+                    looserName = "Player 1"                    
+                }
                 console.log("Game Over");
-                this.onscreenText.text = "Game Over";
+                this.onscreenText1.text = "Game Over";
+                this.onscreenText2.text = looserName + " sucks!";
                 this.gameOver = true;
             }
         }
