@@ -2,6 +2,7 @@ var menu = function(game){
     
     var map01Button;
     var map02Button;
+    var map03Button;
     var map04Button;
     var menuTrack;
    
@@ -25,7 +26,7 @@ menu.prototype = {
         map01Button = this.game.add.button(150, 300, 'map01Button', this.actionOnClickMap01, this, 1, 0, 1);
         map02Button = this.game.add.button(400, 300, 'map02Button', this.actionOnClickMap02, this, 1, 0, 1);
         map03Button = this.game.add.button(650, 300, 'map03Button', this.actionOnClickMap03, this, 1, 0, 1);
-        map04Button = this.game.add.button(900, 300, 'map04Button', this.actionOnClickMap03, this, 1, 0, 1);
+        map04Button = this.game.add.button(900, 300, 'map04Button', this.actionOnClickMap04, this, 1, 0, 1);
        
         this.menuTrack = this.game.sound.play('menuTrack');
 

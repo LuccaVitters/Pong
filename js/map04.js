@@ -1,23 +1,23 @@
 function map04(game) {    
     this.configuration = {
         ball: {
-            x: 380, 
-            y: 150, 
+            x: 634, 
+            y: 337, 
             rotation: 45, 
             speed: 500
         },
         player1: {
-            x: 530, 
-            y: 520, 
-            rotation: 38.5, 
+            x: 295, 
+            y: 130, 
+            rotation: 0, 
             speed: 400, 
             up: Phaser.KeyCode.W,
             down: Phaser.KeyCode.S
         },
         player2: {
-            x: 750, 
-            y: 520, 
-            rotation: -38.5, 
+            x: 975, 
+            y: 560, 
+            rotation: 0, 
             speed: 400, 
             up: Phaser.KeyCode.UP,
             down: Phaser.KeyCode.DOWN

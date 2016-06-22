@@ -1,8 +1,8 @@
 function map02(game) {    
     this.configuration = {
         ball: {
-            x: 380, 
-            y: 150, 
+            x: 633, 
+            y: 166, 
             rotation: 45, 
             speed: 600
         },
