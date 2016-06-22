@@ -13,7 +13,6 @@ var gameProtoype = {
         //audio
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
-        this.game.load.audio('track1', 'soundAssets/ZweihaenderVideoGames.mp3');
         
         //physics
         this.game.load.physics("map_physics", this.configuration.assets.physics_map);
@@ -33,7 +32,6 @@ var gameProtoype = {
         // turn on impact events for the world to get collision callbacks
         this.game.physics.p2.setImpactEvents(true);
         
-        this.track1 = this.game.sound.play('track1');
         
         // needed for ball mechanics
         this.game.physics.p2.restitution = 1;
@@ -73,7 +71,6 @@ var gameProtoype = {
     },
     
     hitPaddle1: function() {
-        console.log(this);
         this.ballHitPaddle.play();
     },
     

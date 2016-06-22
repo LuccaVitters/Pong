@@ -10,7 +10,7 @@ menu.prototype = {
     
     preload: function() {
     
-    this.game.load.audio('menuTrack', 'soundAssets/CarpenterBrutTurboKiller.mp3')
+    this.game.load.audio('menuTrack', 'soundAssets/ZweihaenderVideoGames.mp3')
     this.game.load.image('map01Button','assets/map01Button.png');
     this.game.load.image('map02Button','assets/map02Button.png');
     this.game.load.image('map03Button','assets/map03Button.png');
