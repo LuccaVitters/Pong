@@ -203,20 +203,27 @@ var gameProtoype = {
     },
     
     update: function () {
-        this.updatePlayer(this.player1, this.configuration.player1.speed);
-        this.updatePlayer(this.player2, this.configuration.player2.speed);
+        this.updatePlayer(this.player1);
+        this.updatePlayer(this.player2);
         this.setVelocity(this.ball.sprite, this.configuration.ball.speed);
     },
         
-    updatePlayer: function (player, paddleVelocity) {
-        player.paddle.sprite.body.setZeroVelocity();
+    updatePlayer: function (player) {
+        var body = player.paddle.sprite.body;
+        var config = player.configuration;
+        var dx = body.x - config.x;
+        var dy = body.y - config.y;
+        var distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (player.controls.forwardKey.isDown) {
-            player.paddle.sprite.body.moveForward(paddleVelocity);
-        }
-        if (player.controls.backwardKey.isDown) {
-            player.paddle.sprite.body.moveBackward(paddleVelocity);
-        }
+        body.setZeroVelocity();
+        //if (distance < config.radius) {
+            if (player.controls.forwardKey.isDown) {
+                body.moveForward(config.speed);
+            }
+            if (player.controls.backwardKey.isDown) {
+                body.moveBackward(config.speed);
+            }
+        //}
     },
 
     getVelocity: function (sprite) {
