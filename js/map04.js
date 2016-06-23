@@ -7,19 +7,19 @@ function map04(game) {
         },
         player1: {
             x: 305, 
-            y: 130, 
+            y: 145, 
             rotation: 0, 
             speed: 400, 
-            radius: 100, 
+            radius: 74, 
             up: Phaser.KeyCode.W,
             down: Phaser.KeyCode.S
         },
         player2: {
             x: 965, 
-            y: 560, 
+            y: 567, 
             rotation: 0, 
             speed: 400, 
-            radius: 100, 
+            radius: 74, 
             up: Phaser.KeyCode.UP,
             down: Phaser.KeyCode.DOWN
         },
