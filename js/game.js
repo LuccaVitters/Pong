@@ -15,7 +15,6 @@ var gameProtoype = {
     gameOver: false,
     
     preload: function () {
-        
         //audio
         this.game.load.audio('ballHitWorld', 'soundAssets/ballHitWorld.ogg');
         this.game.load.audio('ballHitPaddle', 'soundAssets/ballHitPaddle.ogg');
@@ -52,7 +51,7 @@ var gameProtoype = {
         this.game.physics.p2.applyDamping = false;
         var ballMaterial = this.game.physics.p2.createMaterial();
         this.game.physics.p2.createContactMaterial(ballMaterial, ballMaterial, {friction: 0, restitution: 1});
-
+        
         this.map = this.createMap();
         this.ball = this.createBall(this.configuration.ball);
         this.player1 = this.createPlayer(this.configuration.player1, "goal1", 100, 200);
@@ -74,9 +73,11 @@ var gameProtoype = {
         
         this.menuButton = this.game.add.button(1020, 30, 'menuButton', this.onMenuButtonClick, this, 0.5, 1, 1);
         
+        // bitmap text 'Game over'
         this.onscreenText1 = this.game.add.bitmapText(450, 200, 'carrier_command_black','',34);
         this.onscreenText2 = this.game.add.bitmapText(340, 295, 'carrier_command_black','',34);
         
+        // audio
         this.ballHitWorld = this.game.add.audio('ballHitWorld');
         this.ballHitPaddle = this.game.add.audio('ballHitPaddle');
         this.scored = this.game.add.audio('scored');
@@ -127,7 +128,6 @@ var gameProtoype = {
             }
         }
     },
-    
     
     createMap: function () {
         var sprite = this.game.add.sprite(
@@ -192,8 +192,8 @@ var gameProtoype = {
                 configuration.rotation),
             goal: this.createGoal(goalKey),
             controls: {
-                forwardKey: this.game.input.keyboard.addKey(configuration.up),
-                backwardKey: this.game.input.keyboard.addKey(configuration.down)
+                upKey: this.game.input.keyboard.addKey(configuration.up),
+                downKey: this.game.input.keyboard.addKey(configuration.down)
             },
             score: {
                 bmpText: this.game.add.bitmapText(0, 0, 'carrier_command', '0', this.scoreTextSize),
@@ -256,19 +256,30 @@ var gameProtoype = {
     updatePlayer: function (player) {
         var body = player.paddle.sprite.body;
         var config = player.configuration;
-        var dx = body.x - config.x;
-        var dy = body.y - config.y;
-        var distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // paddle delta to center
+        var delta = new Phaser.Point(body.x - config.x, body.y - config.y);
+        var deltaMagnitude = delta.getMagnitude();
+        
+        // paddle direction 
+        // NOTE:in Phaser...
+        // the coordinate origin is the top-left-corner,
+        // the x coordinate grows to the right, 
+        // the y coordinate grows to the bottom, 
+        // rotation is clockwise,
+        // the default direction is towards the x axis, parallel to the y axis
+        var direction = new Phaser.Point(Math.sin(body.rotation), -Math.cos(body.rotation));
+        
+        var directionIncreasesDelta = Phaser.Point.add(delta, direction).getMagnitude() > delta.getMagnitude();
+        var hasReachedLimit = deltaMagnitude >= config.radius;
         
         body.setZeroVelocity();
-        //if (distance < config.radius) {
-            if (player.controls.forwardKey.isDown) {
-                body.moveForward(config.speed);
-            }
-            if (player.controls.backwardKey.isDown) {
-                body.moveBackward(config.speed);
-            }
-        //}
+        if (player.controls.upKey.isDown && (!hasReachedLimit || !directionIncreasesDelta)) {
+            body.moveForward(config.speed);
+        }
+        if (player.controls.downKey.isDown && (!hasReachedLimit || directionIncreasesDelta)) {
+            body.moveBackward(config.speed);
+        }
     },
 
     getVelocity: function (sprite) {
