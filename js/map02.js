@@ -6,20 +6,20 @@ function map02(game) {
             speed: 600
         },
         player1: {
-            x: 380, 
+            x: 405, 
             y: 615, 
             rotation: 90, 
             speed: 400, 
-            radius: 200, 
+            radius: 160, 
             up: Phaser.KeyCode.D,
             down: Phaser.KeyCode.A
         },
         player2: {
-            x: 900, 
+            x: 875, 
             y: 615, 
             rotation: 90, 
             speed: 400, 
-            radius: 200, 
+            radius: 155, 
             up: Phaser.KeyCode.RIGHT,
             down: Phaser.KeyCode.LEFT
         },
