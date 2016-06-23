@@ -113,11 +113,10 @@ var gameProtoype = {
             player.score.fixPosition();
 
             if (player.score.bmpText.text == this.scoreMax)  {
-                
                 var looserName;
                 if (player == this.player1) {
                     looserName = "Player 2";
-                    }
+                }
                 else if(player == this.player2) {
                     looserName = "Player 1"                    
                 }
